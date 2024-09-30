@@ -1,0 +1,41 @@
+<c-row ngPreserveWhitespaces>
+    <c-col xs="12">
+      <c-card class="mb-4">
+        <c-card-header>
+          <strong>Angular Table</strong> <small>Striped rows</small>
+        </c-card-header>
+        <c-card-body>
+          <p class="text-body-secondary small">
+            Use <code>striped</code> property to add zebra-striping to any table row within the <code>&lt;tbody&gt;</code>.
+          </p>
+          <app-docs-example href="components/table#striped-rows">
+            <table [striped]="true" cTable>
+              <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Primer Apellido</th>
+                <th scope="col">Segundo Apellido</th>
+                <th scope="col">EPS</th>
+              </tr>
+              </thead>
+              <tbody>
+                @for (usuario of usuarios; track usuario.idUsuario){
+                  <tr>
+                    <th scope="row">{{usuario.idUsuario}}</th>
+                    <td> {{usuario.nombre1}} </td>
+                    <td> {{usuario.apellido1}} </td>
+                    <td> {{usuario.apellido2}} </td>
+                    <td> {{usuario.eps}} </td>
+                  </tr>
+                }
+               
+              </tbody>
+            </table>
+          </app-docs-example>
+          >
+        </c-card-body>
+      </c-card>
+    </c-col>
+  </c-row>
+  
