@@ -20,9 +20,9 @@
               </tr>
               </thead>
               <tbody>
-                @for (usuario of usuarios; track usuario.idUsuario){
+                @for (usuario of usuarios; track usuario.idUser){
                   <tr>
-                    <th scope="row">{{usuario.idUsuario}}</th>
+                    <th scope="row">{{usuario.idUser}}</th>
                     <td> {{usuario.name1}} </td>
                     <td> {{usuario.lastname1}} </td>
                     <td> {{usuario.lastname2}} </td>
@@ -33,7 +33,7 @@
               </tbody>
             </table>
           </app-docs-example>
-           <pdf [usuarios]="usuarios" />
+           <pdf/>
         </c-card-body>
       </c-card>
     </c-col>

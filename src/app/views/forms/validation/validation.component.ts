@@ -2,24 +2,46 @@ import { Component, OnInit } from '@angular/core';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { DocsExampleComponent } from '@docs-components/public-api';
 import { RowComponent, ColComponent, TextColorDirective, CardComponent, CardHeaderComponent, CardBodyComponent, FormDirective, FormLabelDirective, FormControlDirective, FormFeedbackComponent, InputGroupComponent, InputGroupTextDirective, FormSelectDirective, FormCheckComponent, FormCheckInputDirective, FormCheckLabelDirective, ButtonDirective, ListGroupDirective, ListGroupItemDirective } from '@coreui/angular';
+import { Usuario } from 'src/app/models/usuario';
+import { UsuarioService } from 'src/app/usuario.service';
 
 @Component({
     selector: 'app-validation',
     templateUrl: './validation.component.html',
     styleUrls: ['./validation.component.scss'],
     standalone: true,
-    imports: [RowComponent, ColComponent, TextColorDirective, CardComponent, CardHeaderComponent, CardBodyComponent, DocsExampleComponent, ReactiveFormsModule, FormsModule, FormDirective, FormLabelDirective, FormControlDirective, FormFeedbackComponent, InputGroupComponent, InputGroupTextDirective, FormSelectDirective, FormCheckComponent, FormCheckInputDirective, FormCheckLabelDirective, ButtonDirective, ListGroupDirective, ListGroupItemDirective]
+    imports: [FormsModule, RowComponent, ColComponent, TextColorDirective, CardComponent, CardHeaderComponent, CardBodyComponent, DocsExampleComponent, ReactiveFormsModule, FormsModule, FormDirective, FormLabelDirective, FormControlDirective, FormFeedbackComponent, InputGroupComponent, InputGroupTextDirective, FormSelectDirective, FormCheckComponent, FormCheckInputDirective, FormCheckLabelDirective, ButtonDirective, ListGroupDirective, ListGroupItemDirective]
 })
 export class ValidationComponent implements OnInit {
 
   customStylesValidated = false;
   browserDefaultsValidated = false;
   tooltipValidated = false;
+  usuario: Usuario = new Usuario();
 
-  constructor() { }
+  constructor(private usuarioServicio: UsuarioService) { }
 
   ngOnInit(): void { }
 
+  enviar(){
+
+  }
+
+guardarUsuario(): void{
+this.usuarioServicio.agregarUsuarioLista(this.usuario).subscribe(
+  {
+    next:(datos)=>{
+      this.irListaUsuarios();
+    },
+    error: (error: any) => {console.log(error)}
+  }
+);
+}
+
+irListaUsuarios(){
+  
+}
+  
   onSubmit1() {
     this.customStylesValidated = true;
     console.log('Submit... 1');

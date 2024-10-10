@@ -10,9 +10,9 @@ import {PdfComponent} from './components/pdf/pdf.component'
 import { EventEmitter } from 'stream';
 
 
-// @Injectable({
-//   providedIn: 'root'
-// })
+@Injectable({
+  providedIn: 'root'
+})
 
 @Component({
   selector: 'table2',
@@ -65,7 +65,7 @@ export class Table2 {
         this.usuarios=datos;
       })
      );
-     
+    
     }
-
+ 
   }

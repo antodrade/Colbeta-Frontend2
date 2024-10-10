@@ -17,4 +17,9 @@ export class UsuarioService {
   obtenerUsuarioLista(): Observable<Usuario[]>{
     return this.clienteHttp.get<Usuario[]>(this.urlBase);
   }
+
+  agregarUsuarioLista(usuario: Usuario): Observable<Object>{
+    return this.clienteHttp.post(this.urlBase, usuario)
+  }
+
 }
