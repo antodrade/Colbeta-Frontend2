@@ -37,11 +37,14 @@
     "@coreui/icons-angular": "~5.2.16",
     "@coreui/utils": "^2.0.2",
     "chart.js": "^4.4.4",
+    "exceljs": "^4.4.0",
     "lodash-es": "^4.17.21",
     "ngx-scrollbar": "^13.0.3",
     "pdfmake": "^0.2.13",
     "rxjs": "~7.8.1",
+    "sheetjs": "^2.0.0",
     "tslib": "^2.7.0",
+    "xlsx": "^0.18.5",
     "zone.js": "~0.14.10"
   },
   "devDependencies": {

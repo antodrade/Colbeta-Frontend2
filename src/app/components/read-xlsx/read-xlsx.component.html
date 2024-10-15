@@ -1,0 +1,11 @@
+
+<div class="componentTitle">
+    <p>Lectura de hoja de cálculo</p>
+</div>
+
+<div class="form-container">
+    <input type="file" class="form-control" placeholder="Selecciona un fichero" (change)="incomingFile($event)">
+    <div class="form-button">
+        <button type="button" class="btn btn-secondary" (click)="processFile()" [disabled]="!target">Procesar</button>
+    </div>
+</div>

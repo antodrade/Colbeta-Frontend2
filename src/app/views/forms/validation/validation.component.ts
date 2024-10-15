@@ -39,7 +39,7 @@ this.usuarioServicio.agregarUsuarioLista(this.usuario).subscribe(
 }
 
 irListaUsuarios(){
-  
+  console.log("holaaaaaaaaaaaaaa")
 }
   
   onSubmit1() {

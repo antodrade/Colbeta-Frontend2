@@ -18,37 +18,37 @@
           >
             <c-col class="position-relative" md="3">
               <label cLabel for="validationTooltip01">Primer nombre</label>
-              <input cFormControl id="validationTooltip01" required type="text"  placeholder="Escriba su primer nombre"
+              <input cFormControl id="validationTooltip01" required type="text" name="name1"  placeholder="Escriba su primer nombre"
               [(ngModel)]="usuario.name1" />
               <c-form-feedback [valid]="true" tooltip>Looks good!</c-form-feedback>
             </c-col>
             <c-col class="position-relative" md="3">
               <label cLabel for="validationTooltip01">Segundo nombre</label>
-              <input cFormControl id="validationTooltip01" required type="text"  placeholder="Escriba su segundo nombre"
+              <input cFormControl id="validationTooltip01" required type="text" name="name2"  placeholder="Escriba su segundo nombre"
               [(ngModel)]="usuario.name2" />
               <c-form-feedback [valid]="true" tooltip>Looks good!</c-form-feedback>
             </c-col>
             <c-col class="position-relative" md="3">
               <label cLabel for="validationTooltip02">Primer Apellido</label>
-              <input cFormControl id="validationTooltip02" required type="text" placeholder="Escriba su primer apellido" 
+              <input cFormControl id="validationTooltip02" required type="text" name="lastname1" placeholder="Escriba su primer apellido" 
               [(ngModel)]="usuario.lastname1"/>
               <c-form-feedback [valid]="true" tooltip>Looks good!</c-form-feedback>
             </c-col>
             <c-col class="position-relative" md="3">
               <label cLabel for="validationTooltip02">Segundo Apellido</label>
-              <input cFormControl id="validationTooltip02" required type="text" placeholder="Escriba su segundo apellido" 
+              <input cFormControl id="validationTooltip02" required type="text" name="lastname2" placeholder="Escriba su segundo apellido" 
               [(ngModel)]="usuario.lastname2"/>
               <c-form-feedback [valid]="true" tooltip>Looks good!</c-form-feedback>
             </c-col>
             <c-col class="position-relative" md="4">
               <label cLabel for="validationTooltip01">Dirección</label>
-              <input cFormControl id="validationTooltip01" required type="text"  placeholder="Escriba su primer nombre"
+              <input cFormControl id="validationTooltip01" required type="text" name="direccion" placeholder="Escriba su primer nombre"
               [(ngModel)]="usuario.direccion" />
               <c-form-feedback [valid]="true" tooltip>Looks good!</c-form-feedback>
             </c-col>
             <c-col class="position-relative" md="3">
               <label cLabel for="validationTooltip04">Ciudad</label>
-              <select cSelect id="validationTooltip04" required placeholder="escoge"
+              <select cSelect id="validationTooltip04" required placeholder="escoge" name="ciudad"
               [(ngModel)]="usuario.ciudad">
                 <option value="">Choose...</option>
                 <option value="Barranquilla">Barranquilla</option>
@@ -59,13 +59,13 @@
             </c-col>
             <c-col class="position-relative" md="2">
               <label cLabel for="validationTooltip02">Fecha de Ingreso</label>
-              <input cFormControl id="validationTooltip02" required type="date" placeholder="dd-mm-aaaa"
+              <input cFormControl id="validationTooltip02" required type="date" name="fechaIngreso" placeholder="dd-mm-aaaa"
               [(ngModel)]="usuario.fechaIngreso" />
               <c-form-feedback [valid]="true" tooltip>Looks good!</c-form-feedback>
             </c-col>
             <c-col class="position-relative" md="3">
               <label cLabel for="validationTooltip04">EPS</label>
-              <select cSelect id="validationTooltip04" required
+              <select cSelect id="validationTooltip04"  name="eps"
               [(ngModel)]="usuario.eps">
                 <option value="">Choose...</option>
                 <option value="Sura">Sura</option>

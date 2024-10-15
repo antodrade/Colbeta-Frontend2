@@ -6,8 +6,11 @@ import { RowComponent, ColComponent, TextColorDirective, CardComponent, CardHead
 import {Usuario2} from 'src/app/models/usuario2'
 import {UsuarioService} from './usuario.service'
 import { Usuario } from './models/usuario';
-import {PdfComponent} from './components/pdf/pdf.component'
+import {PdfComponent} from './components/pdf/pdf.component';
 import { EventEmitter } from 'stream';
+
+import {ReadXlsxComponent} from './components/read-xlsx/read-xlsx.component';
+import {WriteXlsxComponent} from './components/write-xlsx/write-xlsx.component';
 
 
 @Injectable({
@@ -18,7 +21,7 @@ import { EventEmitter } from 'stream';
   selector: 'table2',
   templateUrl: './table2.component.html',
   standalone: true,
-    imports: [ RowComponent, ColComponent, TextColorDirective, CardComponent, CardHeaderComponent, 
+    imports: [ WriteXlsxComponent, ReadXlsxComponent, RowComponent, ColComponent, TextColorDirective, CardComponent, CardHeaderComponent, 
       CardBodyComponent, DocsExampleComponent, TableDirective, TableColorDirective, TableActiveDirective, 
       BorderDirective, AlignDirective, ButtonDirective, PdfComponent]
 })
@@ -52,11 +55,13 @@ export class Table2 {
 
     // @Output() usuariosEventEmitter = new EventEmitter();
 
+
     constructor(private usuarioServicio: UsuarioService) { }
   ngOnInit(): void {
      this.obtenerUsuarios();
    
   }
+
 
   
   obtenerUsuarios(): void {

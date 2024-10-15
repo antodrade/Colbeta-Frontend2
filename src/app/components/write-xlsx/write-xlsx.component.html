@@ -1,0 +1,12 @@
+<div class="component-title">
+    <p>Escritura en hoja de cálculo</p>
+</div>
+
+<div class="form-container">
+    <div class="form">
+        <textarea class="form-control textarea" placeholder="Contenido" [(ngModel)]="contentString"></textarea>
+      </div>
+    <div class="form-button">
+        <button type="button" class="btn btn-secondary" (click)="generateFile()" [disabled]="!contentString">Generar fichero</button>
+    </div>
+</div>
