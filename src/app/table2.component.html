@@ -14,6 +14,7 @@
               <thead>
               <tr>
                 <th scope="col">#</th>
+                <th scope="col"># de Identificacion</th>
                 <th scope="col">Nombre</th>
                 <th scope="col">Primer Apellido</th>
                 <th scope="col">Segundo Apellido</th>
@@ -24,6 +25,7 @@
                 @for (usuario of usuarios; track usuario.idUser){
                   <tr>
                     <th scope="row">{{usuario.idUser}}</th>
+                    <!-- <td> {{usuario.nidentificacion}} </td> -->
                     <td> {{usuario.name1}} </td>
                     <td> {{usuario.lastname1}} </td>
                     <td> {{usuario.lastname2}} </td>

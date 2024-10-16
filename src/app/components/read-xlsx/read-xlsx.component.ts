@@ -70,7 +70,7 @@ export class ReadXlsxComponent implements OnInit{
 
       const personasArray = data.map(persona => {
         return Object.entries(persona).map(([propiedad, valor]) => {
-          return ` ${valor}`;
+          return `${valor}`;
         });
       });
         console.log(data); // Data will be logged in array format containing objects
