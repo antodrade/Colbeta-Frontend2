@@ -19,30 +19,30 @@ export class PdfComponent implements OnInit {
 
 usuarios: Usuario[]=[];
  tableData: any = [];
- usuarios2: Usuario[]=[
-    {
-        idUser: 1,
-        name1: 'xxxxx',
-        name2: 'xxxxx',
-        lastname1: 'xxxxx',
-        lastname2: 'xxxxxx',
-        eps: 'xxxxxx',
-        fechaIngreso: new Date(86400000),
-        direccion: 'xxxxxx',
-        ciudad: 'xxxxxxx'
-    },
-    {
-      idUser: 2,
-      name1: 'yyyyyyy',
-      name2: 'yyyyyyy',
-      lastname1: 'yyyyy',
-      lastname2: 'yyyyyy',
-      eps: 'yyyyyyy',
-      fechaIngreso: new Date(86400000),
-      direccion: 'yyyyyyy',
-      ciudad: 'yyyyyyy'
-  }
-]; 
+//  usuarios2: Usuario[]=[
+//     {
+//         idUser: 1,
+//         name1: 'xxxxx',
+//         name2: 'xxxxx',
+//         lastname1: 'xxxxx',
+//         lastname2: 'xxxxxx',
+//         eps: 'xxxxxx',
+//         fechaIngreso: new Date(86400000),
+//         direccion: 'xxxxxx',
+//         ciudad: 'xxxxxxx'
+//     },
+//     {
+//       idUser: 2,
+//       name1: 'yyyyyyy',
+//       name2: 'yyyyyyy',
+//       lastname1: 'yyyyy',
+//       lastname2: 'yyyyyy',
+//       eps: 'yyyyyyy',
+//       fechaIngreso: new Date(86400000),
+//       direccion: 'yyyyyyy',
+//       ciudad: 'yyyyyyy'
+//   }
+// ]; 
 
 constructor(private usuarioServicio: UsuarioService) { 
 
