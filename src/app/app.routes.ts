@@ -18,6 +18,11 @@ export const routes: Routes = [
         path: 'dashboard',
         loadChildren: () => import('./views/dashboard/routes').then((m) => m.routes)
       },
+      // {
+      //   path: 'form-eps',
+      //   loadChildren: () => import('./views/base/form-eps').then((m) => m.routes)
+      // },
+
       {
         path: 'theme',
         loadChildren: () => import('./views/theme/routes').then((m) => m.routes)

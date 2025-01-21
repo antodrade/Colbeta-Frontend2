@@ -4,13 +4,18 @@ import { DocsExampleComponent } from '@docs-components/public-api';
 import { RowComponent, ColComponent, TextColorDirective, CardComponent, CardHeaderComponent, CardBodyComponent, FormDirective, FormLabelDirective, FormControlDirective, FormFeedbackComponent, InputGroupComponent, InputGroupTextDirective, FormSelectDirective, FormCheckComponent, FormCheckInputDirective, FormCheckLabelDirective, ButtonDirective, ListGroupDirective, ListGroupItemDirective } from '@coreui/angular';
 import { Usuario } from 'src/app/models/usuario';
 import { UsuarioService } from 'src/app/usuario.service';
+import { RouterLink } from '@angular/router';
 
 @Component({
     selector: 'app-validation',
     templateUrl: './validation.component.html',
     styleUrls: ['./validation.component.scss'],
     standalone: true,
-    imports: [FormsModule, RowComponent, ColComponent, TextColorDirective, CardComponent, CardHeaderComponent, CardBodyComponent, DocsExampleComponent, ReactiveFormsModule, FormsModule, FormDirective, FormLabelDirective, FormControlDirective, FormFeedbackComponent, InputGroupComponent, InputGroupTextDirective, FormSelectDirective, FormCheckComponent, FormCheckInputDirective, FormCheckLabelDirective, ButtonDirective, ListGroupDirective, ListGroupItemDirective]
+    imports: [FormsModule, RowComponent, ColComponent, TextColorDirective, CardComponent, CardHeaderComponent, 
+      CardBodyComponent, DocsExampleComponent, ReactiveFormsModule, FormsModule, FormDirective, FormLabelDirective, 
+      FormControlDirective, FormFeedbackComponent, InputGroupComponent, InputGroupTextDirective,
+       FormSelectDirective, FormCheckComponent, FormCheckInputDirective, FormCheckLabelDirective,
+        ButtonDirective, ListGroupDirective, ListGroupItemDirective, RouterLink]
 })
 export class ValidationComponent implements OnInit {
 

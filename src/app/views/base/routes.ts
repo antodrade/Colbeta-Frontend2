@@ -104,6 +104,13 @@ export const routes: Routes = [
         }
       },
       {
+        path: 'form-eps',
+        loadComponent: () => import('./form-eps/form-eps.component').then(m => m.FormEpsComponent),
+        data: {
+          title: 'Form-Eps'
+        }
+      },
+      {
         path: 'tabs',
         loadComponent: () => import('./tabs/tabs.component').then(m => m.AppTabsComponent),
         data: {

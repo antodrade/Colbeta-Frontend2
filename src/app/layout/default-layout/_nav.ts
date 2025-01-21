@@ -7,7 +7,7 @@ export const navItems: INavData[] = [
     iconComponent: { name: 'cil-speedometer' },
     badge: {
       color: 'info',
-      text: 'NEW'
+      text: 'Holis'
     }
   },
   {
@@ -23,7 +23,7 @@ export const navItems: INavData[] = [
     name: 'Typography',
     url: '/theme/typography',
     linkProps: { fragment: 'headings' },
-    iconComponent: { name: 'cil-pencil' }
+    iconComponent: { name: 'cilChart' }
   },
   {
     name: 'Components',
@@ -190,6 +190,17 @@ export const navItems: INavData[] = [
     iconComponent: { name: 'cil-chart-pie' },
     url: '/base/tables'
   },
+  {
+    name: 'Generar Planilla',
+    iconComponent: { name: 'cil-chart-pie' },
+    url: '/base/tables'
+  },
+  {
+    name: 'Generar Formulario',
+    iconComponent: { name: 'cil-chart-pie' },
+    url: '/base/form-eps'
+  },
+  
   {
     name: 'Icons',
     iconComponent: { name: 'cil-star' },

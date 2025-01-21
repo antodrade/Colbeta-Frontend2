@@ -22,6 +22,7 @@ usuarios: Usuario[]=[];
  usuarios2: Usuario[]=[
     {
         idUser: 1,
+        nidentificacion: 1,
         name1: 'xxxxx',
         name2: 'xxxxx',
         lastname1: 'xxxxx',
@@ -33,6 +34,7 @@ usuarios: Usuario[]=[];
     },
     {
       idUser: 2,
+      nidentificacion: 1,
       name1: 'yyyyyyy',
       name2: 'yyyyyyy',
       lastname1: 'yyyyy',

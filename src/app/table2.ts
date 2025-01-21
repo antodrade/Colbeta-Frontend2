@@ -11,6 +11,7 @@ import { EventEmitter } from 'stream';
 
 import {ReadXlsxComponent} from './components/read-xlsx/read-xlsx.component';
 import {WriteXlsxComponent} from './components/write-xlsx/write-xlsx.component';
+import { RouterLink } from '@angular/router';
 
 
 @Injectable({
@@ -23,7 +24,7 @@ import {WriteXlsxComponent} from './components/write-xlsx/write-xlsx.component';
   standalone: true,
     imports: [ WriteXlsxComponent, ReadXlsxComponent, RowComponent, ColComponent, TextColorDirective, CardComponent, CardHeaderComponent, 
       CardBodyComponent, DocsExampleComponent, TableDirective, TableColorDirective, TableActiveDirective, 
-      BorderDirective, AlignDirective, ButtonDirective, PdfComponent]
+      BorderDirective, AlignDirective, ButtonDirective, PdfComponent, RouterLink], 
 })
 
 export class Table2 {
@@ -71,6 +72,10 @@ export class Table2 {
       })
      );
     
+    }
+
+    newUser(): void {
+      console.log("ombeeeeeee")
     }
  
   }
