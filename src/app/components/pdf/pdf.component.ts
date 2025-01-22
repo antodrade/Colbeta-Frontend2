@@ -19,7 +19,6 @@ export class PdfComponent implements OnInit {
 
 usuarios: Usuario[]=[];
  tableData: any = [];
-<<<<<<< HEAD
  usuarios2: Usuario[]=[
     {
         idUser: 1,
@@ -46,9 +45,6 @@ usuarios: Usuario[]=[];
       ciudad: 'yyyyyyy'
   }
 ]; 
-=======
-
->>>>>>> eb47adc4a38616cf3c81aa065eebe4bbcce1b14e
 
 constructor(private usuarioServicio: UsuarioService) { 
 
