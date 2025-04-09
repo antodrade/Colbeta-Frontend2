@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import {FormularioEps} from '../../../models/formularioEps'
+import { PdfService } from './../../../service/pdf.service';
 
 @Component({
   selector: 'form-eps',
