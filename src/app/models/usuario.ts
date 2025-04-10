@@ -5,8 +5,16 @@ export class Usuario {
     name2!: string;
     lastname1!: string;
     lastname2!: string;
+    tipoDoc!: string;
+    numDoc!: string;
+    sexo!: string;
+    fechaNac!: string;
+    dirUsuario!: string;
+    telUsuario!: string;
+    celUsuario!: string;
+    email!: string;
+    ciudad!: string;
     direccion!: string;
     eps!: string;
-    ciudad!: string;
     fechaIngreso!: Date;
     }

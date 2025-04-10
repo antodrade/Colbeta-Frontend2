@@ -30,7 +30,15 @@ usuarios: Usuario[]=[];
         eps: 'xxxxxx',
         fechaIngreso: new Date(86400000),
         direccion: 'xxxxxx',
-        ciudad: 'xxxxxxx'
+        ciudad: 'xxxxxxx',
+        tipoDoc: '',
+        numDoc: '',
+        sexo: '',
+        fechaNac: '',
+        dirUsuario: '',
+        telUsuario: '',
+        celUsuario: '',
+        email: ''
     },
     {
       idUser: 2,
@@ -42,7 +50,16 @@ usuarios: Usuario[]=[];
       eps: 'yyyyyyy',
       fechaIngreso: new Date(86400000),
       direccion: 'yyyyyyy',
-      ciudad: 'yyyyyyy'
+      ciudad: 'yyyyyyy',
+      tipoDoc: '',
+      numDoc: '',
+      sexo: '',
+      fechaNac: '',
+      dirUsuario: '',
+      telUsuario: '',
+      celUsuario: '',
+      email: ''
+
   }
 ]; 
 

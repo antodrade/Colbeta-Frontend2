@@ -40,6 +40,56 @@
               [(ngModel)]="usuario.lastname2"/>
               <c-form-feedback [valid]="true" tooltip>Looks good!</c-form-feedback>
             </c-col>
+
+
+            <c-col class="position-relative" md="3">
+              <label cLabel for="validationTooltip01">Tipo de doocumento</label>
+              <input cFormControl id="validationTooltip01" required type="text" name="name1"  placeholder="Escriba su primer nombre"
+              [(ngModel)]="usuario.tipoDoc" />
+              <c-form-feedback [valid]="true" tooltip>Looks good!</c-form-feedback>
+            </c-col>
+            <c-col class="position-relative" md="3">
+              <label cLabel for="validationTooltip01">Número de documento</label>
+              <input cFormControl id="validationTooltip01" required type="text" name="name2"  placeholder="Escriba su segundo nombre"
+              [(ngModel)]="usuario.numDoc" />
+              <c-form-feedback [valid]="true" tooltip>Looks good!</c-form-feedback>
+            </c-col>
+            <c-col class="position-relative" md="3">
+              <label cLabel for="validationTooltip02">Sexo</label>
+              <input cFormControl id="validationTooltip02" required type="text" name="lastname1" placeholder="Escriba su primer apellido" 
+              [(ngModel)]="usuario.sexo"/>
+              <c-form-feedback [valid]="true" tooltip>Looks good!</c-form-feedback>
+            </c-col>
+            <c-col class="position-relative" md="3">
+              <label cLabel for="validationTooltip02">Fecha de nacimiento</label>
+              <input cFormControl id="validationTooltip02" required type="text" name="lastname2" placeholder="Escriba su segundo apellido" 
+              [(ngModel)]="usuario.fechaNac"/>
+              <c-form-feedback [valid]="true" tooltip>Looks good!</c-form-feedback>
+            </c-col>
+
+            
+
+            <c-col class="position-relative" md="3">
+              <label cLabel for="validationTooltip01">Teléfono</label>
+              <input cFormControl id="validationTooltip01" required type="text" name="name1"  placeholder="Escriba su primer nombre"
+              [(ngModel)]="usuario.telUsuario" />
+              <c-form-feedback [valid]="true" tooltip>Looks good!</c-form-feedback>
+            </c-col>
+            <c-col class="position-relative" md="3">
+              <label cLabel for="validationTooltip01">Celular</label>
+              <input cFormControl id="validationTooltip01" required type="text" name="name2"  placeholder="Escriba su segundo nombre"
+              [(ngModel)]="usuario.celUsuario" />
+              <c-form-feedback [valid]="true" tooltip>Looks good!</c-form-feedback>
+            </c-col>
+            <c-col class="position-relative" md="6">
+              <label cLabel for="validationTooltip02">Email</label>
+              <input cFormControl id="validationTooltip02" required type="text" name="lastname1" placeholder="Escriba su primer apellido" 
+              [(ngModel)]="usuario.email"/>
+              <c-form-feedback [valid]="true" tooltip>Looks good!</c-form-feedback>
+            </c-col>
+           
+
+
             <c-col class="position-relative" md="4">
               <label cLabel for="validationTooltip01">Dirección</label>
               <input cFormControl id="validationTooltip01" required type="text" name="direccion" placeholder="Escriba su primer nombre"
