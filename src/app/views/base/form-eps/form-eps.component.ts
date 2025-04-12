@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import {FormularioEps} from '../../../models/formularioEps'
 import { PdfService } from './../../../service/pdf.service';
+import { Table2 } from '../../../table2';
 
 @Component({
   selector: 'form-eps',
@@ -14,8 +15,16 @@ export class FormEpsComponent {
 
 formulario: FormularioEps = new FormularioEps();
 
+opciones: string[] = ['Opción 1', 'Opción 2', 'Opción 3'];
+opcionSeleccionada: string = '';
 
-constructor(private pdfService: PdfService ){}
+
+constructor(private pdfService: PdfService ){
+
+this.opciones = ['Opción 1', 'Opción 2', 'Opción 3'];
+
+this.opcionSeleccionada = '';
+}
 
 async handleFileInput(event: any) {
   // Obtener el archivo PDF cargado
