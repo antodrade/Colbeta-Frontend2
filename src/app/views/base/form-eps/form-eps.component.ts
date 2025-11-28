@@ -3,6 +3,8 @@ import { FormsModule } from '@angular/forms';
 import {FormularioEps} from '../../../models/formularioEps'
 import { PdfService } from './../../../service/pdf.service';
 import { Table2 } from '../../../table2';
+import { UsuarioService } from 'src/app/usuario.service';
+import { Usuario } from 'src/app/models/usuario';
 
 @Component({
   selector: 'form-eps',
@@ -14,14 +16,37 @@ import { Table2 } from '../../../table2';
 export class FormEpsComponent {
 
 formulario: FormularioEps = new FormularioEps();
+usuarios: Usuario[] = [];
+
+validar(): void{
+console.log("parcheeeeeeee")
+console.log(this.formulario.numdoc);
+  this.obtenerUsuarios();
+}
+
+obtenerUsuarios(): void {
+  this.usuarioServicio.obtenerUsuarioLista().subscribe(
+    (datos =>{
+      this.usuarios=datos;
+    })
+   );
+  
+  }
+
+
 
 opciones: string[] = ['Opción 1', 'Opción 2', 'Opción 3'];
 opcionSeleccionada: string = '';
 
 
-constructor(private pdfService: PdfService ){
+constructor(private pdfService: PdfService, private usuarioServicio: UsuarioService){
+
+
+
 
 this.opciones = ['Opción 1', 'Opción 2', 'Opción 3'];
+
+
 
 this.opcionSeleccionada = '';
 }

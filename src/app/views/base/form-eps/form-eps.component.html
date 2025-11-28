@@ -51,6 +51,15 @@
         <input type="text" class="form-control" id="numdoc"
         [(ngModel)]="formulario.numdoc"  name="numdoc">
     </div>
+    <div class="mb-3 col-md-3">
+      <label for="numdoc" class="form-label"> . </label>
+      <button 
+        id="numdoc"
+        class="btn btn-primary w-100"
+        (click)="validar()">
+        Validar
+      </button>
+    </div>
   </div>
   <div class="row">
     <div class="mb-3 col-md-3">
