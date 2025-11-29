@@ -1,3 +1,5 @@
+import {Empresa} from './empresa'
+
 export class FormularioEps {
    
 
@@ -33,4 +35,9 @@ export class FormularioEps {
     fechaIng!: string;
     caja!: string;
     cargo!: string;
+    empresa: Empresa;
+
+    constructor(){
+        this.empresa=new Empresa();
+    }
     }

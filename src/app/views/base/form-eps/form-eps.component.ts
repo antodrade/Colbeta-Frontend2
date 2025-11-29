@@ -22,6 +22,25 @@ validar(): void{
 console.log("parcheeeeeeee")
 console.log(this.formulario.numdoc);
   this.obtenerUsuarios();
+  this.usuarios.forEach(u => console.log(u));
+  // for (const usuario of this.usuarios){
+  //  if (usuario.nidentificacion ===  Number(this.formulario.numdoc)){
+    
+  //  }
+  // }
+  this.usuarios.forEach((usuario,index ) => {
+     if (usuario.nidentificacion ===  Number(this.formulario.numdoc)){
+      this.formulario.nombre1 = this.usuarios[index].name1;
+      this.formulario.nombre2 = this.usuarios[index].name2;
+      this.formulario.apellido1 = this.usuarios[index].lastname1;
+      this.formulario.apellido2 = this.usuarios[index].lastname2;
+      this.formulario.ciudadUsuario = this.usuarios[index].ciudad;
+      this.formulario.depUsuario = this.usuarios[index].ciudad;
+      this.formulario.dirUsuario = this.usuarios[index].dirUsuario;
+      this.formulario.emailUsuario = this.usuarios[index].email;
+      this.formulario.celular = this.usuarios[index].celUsuario;
+   }
+  })
 }
 
 obtenerUsuarios(): void {
@@ -111,7 +130,7 @@ async handleFileInput(event: any) {
   const text17 = 'x';
   const text18 = '';
   const text19 = this.formulario.depUsuario;
-  const text20 = this.formulario.nombreEmpresa;
+  const text20 = this.formulario.empresa.nombreEmpresa;
   const text21 = this.formulario.tipoDocEmpresa;
   const text22 = this.formulario.tipoDocEmpresa;
   const text23 = this.formulario.dirEmpresa;
