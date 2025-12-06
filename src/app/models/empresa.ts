@@ -1,4 +1,5 @@
 export class Empresa {
+    idEmpresa!: number;
     nombreEmpresa!: string;
     tipoDocEmpresa!: string;
     docEmpresa!: string;

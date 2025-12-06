@@ -5,6 +5,8 @@ import { PdfService } from './../../../service/pdf.service';
 import { Table2 } from '../../../table2';
 import { UsuarioService } from 'src/app/usuario.service';
 import { Usuario } from 'src/app/models/usuario';
+import { EmpresaService } from 'src/app/empresa.service';
+import { Empresa } from 'src/app/models/empresa';
 
 @Component({
   selector: 'form-eps',
@@ -17,11 +19,13 @@ export class FormEpsComponent {
 
 formulario: FormularioEps = new FormularioEps();
 usuarios: Usuario[] = [];
+empresas: Empresa[] = [];
 
 validar(): void{
 console.log("parcheeeeeeee")
 console.log(this.formulario.numdoc);
   this.obtenerUsuarios();
+  this.obtenerEmpresas();
   this.usuarios.forEach(u => console.log(u));
   // for (const usuario of this.usuarios){
   //  if (usuario.nidentificacion ===  Number(this.formulario.numdoc)){
@@ -43,10 +47,43 @@ console.log(this.formulario.numdoc);
   })
 }
 
+validar2(): void{
+console.log("validar22222222222222")
+console.log(this.formulario.numdoc);
+  this.obtenerEmpresas();
+  this.empresas.forEach(u => console.log(u));
+  // for (const usuario of this.usuarios){
+  //  if (usuario.nidentificacion ===  Number(this.formulario.numdoc)){
+    
+  //  }
+  // }
+  this.empresas.forEach((empresa,index ) => {
+     if (empresa.idEmpresa ===  Number(this.formulario.empresa.idEmpresa)){
+      this.formulario.empresa.ciudadEmpresa = this.empresas[index].ciudadEmpresa;
+      this.formulario.empresa.depEmpresa = this.empresas[index].depEmpresa;
+      this.formulario.empresa.dirEmpresa = this.empresas[index].dirEmpresa;
+      this.formulario.empresa.docEmpresa = this.empresas[index].docEmpresa;
+      this.formulario.emailEmpresa = this.empresas[index].emailEmpresa;
+      this.formulario.empresa.telEmpresa = this.empresas[index].telEmpresa;
+      this.formulario.empresa.tipoDocEmpresa = this.empresas[index].tipoDocEmpresa;
+   }
+  })
+}
+
+
 obtenerUsuarios(): void {
   this.usuarioServicio.obtenerUsuarioLista().subscribe(
-    (datos =>{
+    (datos => {
       this.usuarios=datos;
+    })
+   );
+  
+  }
+   
+   obtenerEmpresas(): void {
+  this.empresaServicio.obtenerEmpresaLista().subscribe(
+    (datos2 => {
+      this.empresas=datos2;
     })
    );
   
@@ -57,8 +94,11 @@ obtenerUsuarios(): void {
 opciones: string[] = ['Opción 1', 'Opción 2', 'Opción 3'];
 opcionSeleccionada: string = '';
 
+opciones2: string[] = ['Great Features', 'Clever Sinergy', 'Soft Skills Management'];
+opcionSeleccionada2: string = '';
 
-constructor(private pdfService: PdfService, private usuarioServicio: UsuarioService){
+
+constructor(private pdfService: PdfService, private usuarioServicio: UsuarioService, private empresaServicio: EmpresaService){
 
 
 
@@ -68,6 +108,7 @@ this.opciones = ['Opción 1', 'Opción 2', 'Opción 3'];
 
 
 this.opcionSeleccionada = '';
+this.opcionSeleccionada2 = '';
 }
 
 async handleFileInput(event: any) {
@@ -131,13 +172,13 @@ async handleFileInput(event: any) {
   const text18 = '';
   const text19 = this.formulario.depUsuario;
   const text20 = this.formulario.empresa.nombreEmpresa;
-  const text21 = this.formulario.tipoDocEmpresa;
-  const text22 = this.formulario.tipoDocEmpresa;
-  const text23 = this.formulario.dirEmpresa;
-  const text24 = this.formulario.telEmpresa;
-  const text25 = this.formulario.emailEmpresa;
-  const text26 = this.formulario.ciudadEmpresa;
-  const text27 = this.formulario.ciudadEmpresa;
+  const text21 = this.formulario.empresa.tipoDocEmpresa;
+  const text22 = this.formulario.empresa.tipoDocEmpresa;
+  const text23 = this.formulario.empresa.dirEmpresa;
+  const text24 = this.formulario.empresa.telEmpresa;
+  const text25 = this.formulario.empresa.emailEmpresa;
+  const text26 = this.formulario.empresa.ciudadEmpresa;
+  const text27 = this.formulario.empresa.ciudadEmpresa;
   const text28 = this.formulario.fechaIng;
   const text29 = this.formulario.caja;
   const text30 = this.formulario.cargo;

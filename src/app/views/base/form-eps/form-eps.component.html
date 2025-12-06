@@ -136,48 +136,71 @@
     <div class="mb-3 col-md-3">
       <label for="nombreEmpresa" class="form-label">Nombre de Empresa</label>
         <input type="text" class="form-control" id="nombreEmpresa" aria-describedby="emailHelp"
-        [(ngModel)]="formulario.empresa.nombreEmpresa"  name="nombreEmpresa">
+        [(ngModel)]="formulario.empresa.idEmpresa"  name="nombreEmpresa">
+          <select id="opciones" [(ngModel)]="opcionSeleccionada2" class="form-control">
+        @for (opcion of opciones2; let i = $index; track opcion) {
+          <option [value]="i+1">{{ opcion }}</option>
+        } @empty {
+          <option disabled>No hay opciones disponibles</option>
+        }
+      </select>
     </div>
+    <div class="mb-3 col-md-3">
+      <label for="numdoc" class="form-label"> . </label>
+      <button 
+        id="numdoc"
+        class="btn btn-primary w-100"
+        (click)="validar2()">
+        Validar
+      </button>
+    </div>
+    <select id="opciones" [(ngModel)]="opcionSeleccionada" class="form-control">
+        @for (opcion of opciones; track opcion) {
+          <option [value]="opcion">{{ opcion }}</option>
+        } @empty {
+          <option disabled>No hay opciones disponibles</option>
+        }
+      </select>
     <div class="mb-3 col-md-3">
       <label for="tipoDocEmpresa" class="form-label">Tipo de Documento de Empresa</label>
         <input type="text" class="form-control" id="tipoDocEmpresa"
-        [(ngModel)]="formulario.tipoDocEmpresa"  name="tipoDocEmpresa">
+        [(ngModel)]="formulario.empresa.tipoDocEmpresa"  name="tipoDocEmpresa">
     </div>
   </div>
   <div class="row">
     <div class="mb-3 col-md-3">
       <label for="docEmpresa" class="form-label">Número de Documento</label>
       <input type="text" class="form-control" id="docEmpresa" aria-describedby="emailHelp"
-        [(ngModel)]="formulario.docEmpresa"  name="docEmpresa">
+        [(ngModel)]="formulario.empresa.docEmpresa"  name="docEmpresa">
     </div>
     <div class="mb-3 col-md-3">
       <label for="dirEmpresa" class="form-label">Dirección</label>
       <input type="text" class="form-control" id="dirEmpresa"
-        [(ngModel)]="formulario.dirEmpresa"  name="dirEmpresa">
+        [(ngModel)]="formulario.empresa.dirEmpresa"  name="dirEmpresa">
       </div>
   </div>
   <div class="row">
     <div class="mb-3 col-md-3">
       <label for="telEmpresa" class="form-label">Teléfono fijo Empresa</label>
         <input type="text" class="form-control" id="telEmpresa" aria-describedby="emailHelp"
-        [(ngModel)]="formulario.telEmpresa"  name="telEmpresa">
+        [(ngModel)]="formulario.empresa.telEmpresa"  name="telEmpresa">
     </div>
     <div class="mb-3 col-md-3">
       <label for="emailEmpresa" class="form-label">Correo Electrónico</label>
       <input type="text" class="form-control" id="emailEmpresa"
-        [(ngModel)]="formulario.emailEmpresa"  name="emailEmpresa">
+        [(ngModel)]="formulario.empresa.emailEmpresa"  name="emailEmpresa">
     </div>
   </div>
   <div class="row">
     <div class="mb-3 col-md-3">
       <label for="ciudadEmpresa" class="form-label">Municipio</label>
         <input type="text" class="form-control" id="ciudadEmpresa" aria-describedby="emailHelp"
-        [(ngModel)]="formulario.ciudadEmpresa"  name="ciudadEmpresa">
+        [(ngModel)]="formulario.empresa.ciudadEmpresa"  name="ciudadEmpresa">
       </div>
     <div class="mb-3 col-md-3">
       <label for="depEmpresa" class="form-label">Departamento</label>
         <input type="text" class="form-control" id="depEmpresa"
-        [(ngModel)]="formulario.depEmpresa"  name="depEmpresa">
+        [(ngModel)]="formulario.empresa.depEmpresa"  name="depEmpresa">
     </div>
   </div>
   <div class="row">
