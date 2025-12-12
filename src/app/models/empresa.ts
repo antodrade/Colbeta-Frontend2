@@ -1,12 +1,12 @@
 export class Empresa {
     idEmpresa!: number;
-    nombreEmpresa!: string;
-    tipoDocEmpresa!: string;
-    docEmpresa!: string;
-    dirEmpresa!: string;
-    telEmpresa!: string;
-    emailEmpresa!: string;
-    ciudadEmpresa!: string;
-    depEmpresa!: string;
+    nidentificacion!:number;
+    nombre!: string;
+    tipoDoc!: string;
+    direccion!: string;
+    telefono!: string;
+    correo!: string;
+    municipio!: string;
+    departamento!: string;
     camejameja!: string;
 }

@@ -58,15 +58,15 @@ console.log(this.formulario.numdoc);
   //  }
   // }
   this.empresas.forEach((empresa,index ) => {
-     if (empresa.idEmpresa ===  Number(this.formulario.empresa.idEmpresa)){
-      this.formulario.empresa.ciudadEmpresa = this.empresas[index].ciudadEmpresa;
-      this.formulario.empresa.depEmpresa = this.empresas[index].depEmpresa;
-      this.formulario.empresa.dirEmpresa = this.empresas[index].dirEmpresa;
-      this.formulario.empresa.docEmpresa = this.empresas[index].docEmpresa;
-      this.formulario.emailEmpresa = this.empresas[index].emailEmpresa;
-      this.formulario.empresa.telEmpresa = this.empresas[index].telEmpresa;
-      this.formulario.empresa.tipoDocEmpresa = this.empresas[index].tipoDocEmpresa;
-   }
+      // if (empresa.idEmpresa ===  Number(this.formulario.empresa.idEmpresa) ){
+      this.formulario.empresa.municipio =  this.empresas[index].municipio;
+      this.formulario.empresa.departamento = this.empresas[1].departamento;
+      this.formulario.empresa.direccion = this.empresas[index].direccion;
+      this.formulario.empresa.nidentificacion = this.empresas[index].nidentificacion;
+      this.formulario.empresa.correo = this.empresas[index].correo;
+      this.formulario.empresa.telefono = this.empresas[index].telefono;
+      this.formulario.empresa.tipoDoc = this.empresas[index].tipoDoc;
+  //  }
   })
 }
 
@@ -171,14 +171,14 @@ async handleFileInput(event: any) {
   const text17 = 'x';
   const text18 = '';
   const text19 = this.formulario.depUsuario;
-  const text20 = this.formulario.empresa.nombreEmpresa;
-  const text21 = this.formulario.empresa.tipoDocEmpresa;
-  const text22 = this.formulario.empresa.tipoDocEmpresa;
-  const text23 = this.formulario.empresa.dirEmpresa;
-  const text24 = this.formulario.empresa.telEmpresa;
-  const text25 = this.formulario.empresa.emailEmpresa;
-  const text26 = this.formulario.empresa.ciudadEmpresa;
-  const text27 = this.formulario.empresa.ciudadEmpresa;
+  const text20 = this.formulario.empresa.nombre;
+  const text21 = this.formulario.empresa.tipoDoc;
+  const text22 = this.formulario.empresa.tipoDoc;
+  const text23 = this.formulario.empresa.direccion;
+  const text24 = this.formulario.empresa.telefono;
+  const text25 = this.formulario.empresa.correo;
+  const text26 = this.formulario.empresa.municipio;
+  const text27 = this.formulario.empresa.municipio;
   const text28 = this.formulario.fechaIng;
   const text29 = this.formulario.caja;
   const text30 = this.formulario.cargo;
