@@ -4,7 +4,7 @@ import { DefaultLayoutComponent } from './layout';
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: 'dashboard',
+    redirectTo: 'home',
     pathMatch: 'full'
   },
   {
@@ -22,7 +22,10 @@ export const routes: Routes = [
       //   path: 'form-eps',
       //   loadChildren: () => import('./views/base/form-eps').then((m) => m.routes)
       // },
-
+      {
+        path: 'home',
+        loadChildren: () => import('./views/home/routes').then((m) => m.routes)
+      },
       {
         path: 'theme',
         loadChildren: () => import('./views/theme/routes').then((m) => m.routes)
