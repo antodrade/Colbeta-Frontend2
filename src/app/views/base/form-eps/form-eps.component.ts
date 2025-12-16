@@ -43,8 +43,19 @@ console.log(this.formulario.numdoc);
       this.formulario.dirUsuario = this.usuarios[index].dirUsuario;
       this.formulario.emailUsuario = this.usuarios[index].email;
       this.formulario.celular = this.usuarios[index].celUsuario;
+      this.formulario.sexo = this.usuarios[index].sexo;
+      this.formulario.fechanac = this.usuarios[index].fechaNac;
+      this.formulario.AFP = "Porvenir";
+      this.formulario.ARL =  "Sura";
+      this.formulario.cargo = "Asesor Comercial";
+      this.formulario.salario = "1.423.500";
+      this.formulario.caja = "Cajacopi"
+      this.formulario.tipodoc = this.usuarios[index].tipoDoc;
+      this.formulario.telUsuario = this.usuarios[index].telUsuario;
+
    }
   })
+  this.validar2();
 }
 
 validar2(): void{
@@ -58,15 +69,20 @@ console.log(this.formulario.numdoc);
   //  }
   // }
   this.empresas.forEach((empresa,index ) => {
-      // if (empresa.idEmpresa ===  Number(this.formulario.empresa.idEmpresa) ){
+    var index2 = index + 1 ;
+    console.log("el idEmpresa de índice"+index2+"es: "+this.formulario.empresa.idEmpresa);
+       if (empresa.idEmpresa ===  Number(this.formulario.empresa.idEmpresa) ){
+        console.log("idEMpresa selesccioando de formulario es: "+this.formulario.empresa.idEmpresa+" y el id de empresa en el arreglo es: "+empresa.idEmpresa )
+        console.log(this.empresas[index].nidentificacion);
       this.formulario.empresa.municipio =  this.empresas[index].municipio;
-      this.formulario.empresa.departamento = this.empresas[1].departamento;
+      this.formulario.empresa.departamento = this.empresas[index].departamento;
       this.formulario.empresa.direccion = this.empresas[index].direccion;
       this.formulario.empresa.nidentificacion = this.empresas[index].nidentificacion;
       this.formulario.empresa.correo = this.empresas[index].correo;
       this.formulario.empresa.telefono = this.empresas[index].telefono;
       this.formulario.empresa.tipoDoc = this.empresas[index].tipoDoc;
-  //  }
+      this.formulario.empresa.nombre = this.empresas[index].nombre;
+   }
   })
 }
 
@@ -250,6 +266,10 @@ async handleFileInput(event: any) {
   const y29 = 533;  // Coordenada Y
   const x30 = 200;  // Coordenada X
   const y30 = 106;  // Coordenada Y
+
+  console.log("imprimir todos los text a ver cual es el que sale undefined: "+text,text2,text3,text4,text5,text6,text7,text8,
+    text9,text10,text11,text12,text13,text14,text15,text16,text17,text18,text19,text20,text21,text22,text23,text24,
+    text25,text26,text27,text28, text29,text30,text31, text32)
  
   this.pdfService.addTextToPdf(existingPdfBytes, text,text2,text3,text4,text5,text6,text7,text8,
     text9,text10,text11,text12,text13,text14,text15,text16,text17,text18,text19,text20,text21,text22,text23,text24,
