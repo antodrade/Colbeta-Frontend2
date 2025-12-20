@@ -51,7 +51,7 @@
             <c-col class="position-relative" md="3">
               <label cLabel for="validationTooltip01">Número de documento</label>
               <input cFormControl id="validationTooltip01" required type="text" name="name2"  placeholder="Escriba su segundo nombre"
-              [(ngModel)]="usuario.numDoc" />
+              [(ngModel)]="usuario.nidentificacion" />
               <c-form-feedback [valid]="true" tooltip>Looks good!</c-form-feedback>
             </c-col>
             <c-col class="position-relative" md="3">
@@ -62,7 +62,7 @@
             </c-col>
             <c-col class="position-relative" md="3">
               <label cLabel for="validationTooltip02">Fecha de nacimiento</label>
-              <input cFormControl id="validationTooltip02" required type="text" name="lastname2" placeholder="Escriba su segundo apellido" 
+              <input cFormControl id="validationTooltip02" required type="date" name="lastname2" placeholder="Escriba su segundo apellido" 
               [(ngModel)]="usuario.fechaNac"/>
               <c-form-feedback [valid]="true" tooltip>Looks good!</c-form-feedback>
             </c-col>

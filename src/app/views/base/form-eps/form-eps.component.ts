@@ -127,6 +127,40 @@ this.opcionSeleccionada = '';
 this.opcionSeleccionada2 = '';
 }
 
+transformarFechaIng(fecha: string): string {
+  // fecha viene como: 2025-12-01
+  const [anio, mes, dia] = fecha.split('-');
+
+  const fechaFormateada = `${dia}${mes}${anio}`; // 01122025
+
+  return fechaFormateada.split('').join('   ');
+}
+
+transformarFechaNac(fechaStr: string): string {
+  if (!fechaStr) return '';
+
+  // Separar componentes del string: "YYYY-MM-DD"
+  const [anio, mes, dia] = fechaStr.split('-');
+
+  // Construir ddMMyyyy
+  const numeros = `${dia}${mes}${anio}`.split('');
+
+  // Aplicar patrón de espacios: 2 entre 1º y 2º, 1 entre los demás, 2 al final
+  return (
+    numeros[0] + '  ' +  // 1 → 6 (2 espacios)
+    numeros[1] + ' '  +
+    numeros[2] + ' '  +
+    numeros[3] + ' '  +
+    numeros[4] + ' '  +
+    numeros[5] + ' '  +
+    numeros[6] + '  ' + // 8 → 0 (2 espacios)
+    numeros[7]
+  );
+}
+
+
+
+
 async handleFileInput(event: any) {
   // Obtener el archivo PDF cargado
   const file = event.target.files[0];
@@ -175,7 +209,7 @@ async handleFileInput(event: any) {
   const text5 = this.formulario.tipodoc;
   const text6 = this.formulario.numdoc;
   const text7 = this.formulario.sexo;
-  const text8 = this.formulario.fechanac;
+  const text8 = this.transformarFechaNac(this.formulario.fechanac);
   const text9 = this.formulario.ARL;
   const text10 = this.formulario.AFP;
   const text11 = this.formulario.salario;
@@ -195,7 +229,7 @@ async handleFileInput(event: any) {
   const text25 = this.formulario.empresa.correo;
   const text26 = this.formulario.empresa.municipio;
   const text27 = this.formulario.empresa.municipio;
-  const text28 = this.formulario.fechaIng;
+  const text28 = this.transformarFechaIng(this.formulario.fechaIng);
   const text29 = this.formulario.caja;
   const text30 = this.formulario.cargo;
 
