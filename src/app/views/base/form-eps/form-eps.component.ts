@@ -5,6 +5,8 @@ import { PdfService } from './../../../service/pdf.service';
 import { Table2 } from '../../../table2';
 import { HttpClient } from '@angular/common/http';
 
+//cambio para commit
+
 @Component({
   selector: 'form-eps',
   standalone: true,
