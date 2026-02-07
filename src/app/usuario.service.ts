@@ -9,7 +9,8 @@ import { Usuario } from './models/usuario';
 })
 export class UsuarioService {
 
-  private urlBase = "http://localhost:8080/hole/usuarios"
+//private urlBase = "http://localhost:8080/hole/usuarios"
+ private urlBase = "https://colbeta-backend.onrender.com/hole/usuarios"
 
 
   constructor(private clienteHttp: HttpClient) { }
