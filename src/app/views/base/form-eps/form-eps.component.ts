@@ -220,7 +220,8 @@ generarPdfconDatos(){
   const text17 = 'x';
   const text18 = '';
   const text19 = this.formulario.depUsuario;
-  const text20 = this.formulario.empresa.nombre;
+  //const text20 = this.formulario.empresa.nombre;
+  const text20 = 'El propio Great';
   const text21 = this.formulario.empresa.tipoDoc;
   const text22 = this.formulario.empresa.tipoDoc;
   const text23 = this.formulario.empresa.direccion;
