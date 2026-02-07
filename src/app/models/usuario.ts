@@ -8,7 +8,7 @@ export class Usuario {
     tipoDoc!: string;
     numDoc!: string;
     sexo!: string;
-    fechaNac!: string;
+    fechaNac!: Date;
     dirUsuario!: string;
     telUsuario!: string;
     celUsuario!: string;
