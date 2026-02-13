@@ -28,6 +28,7 @@ console.log(this.formulario.numdoc);
   this.obtenerUsuarios();
   this.obtenerEmpresas();
   this.usuarios.forEach(u => console.log(u));
+  this.empresas.forEach(u => console.log(u));
   // for (const usuario of this.usuarios){
   //  if (usuario.nidentificacion ===  Number(this.formulario.numdoc)){
     
