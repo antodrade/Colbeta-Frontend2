@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Usuario } from './models/usuario';
+import { environment } from 'src/environments/environment';
 
 
 @Injectable({
@@ -10,7 +11,8 @@ import { Usuario } from './models/usuario';
 export class UsuarioService {
 
  //private urlBase = "http://localhost:8080/hole/usuarios"
- private urlBase = "https://colbeta-backend.onrender.com/hole/usuarios"
+ //private urlBase = "https://colbeta-backend.onrender.com/hole/usuarios"
+ private urlBase = `${environment.apiUrl}/hole/usuarios`;
 
 
   constructor(private clienteHttp: HttpClient) { }
