@@ -9,7 +9,7 @@ import { Empresa } from './models/empresa';
 export class EmpresaService {
 
 //private urlBase = "http://localhost:8080/hole2/empresas"
-private urlBase = "https://colbeta-backend.onrender.com/hole/usuarios"
+private urlBase = "https://colbeta-backend.onrender.com/hole2/empresas"
 
 
   constructor(private clienteHttp: HttpClient ) { }
