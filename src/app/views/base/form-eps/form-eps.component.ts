@@ -27,14 +27,38 @@ console.log("parcheeeeeeee")
 console.log(this.formulario.numdoc);
   this.obtenerUsuarios();
   this.obtenerEmpresas();
-  this.usuarios.forEach(u => console.log(u));
+  
+  
+  // for (const usuario of this.usuarios){
+  //  if (usuario.nidentificacion ===  Number(this.formulario.numdoc)){
+    
+  //  }
+  // }
+  
+  
+  //this.validar2();
+}
+
+validar2(): void{
+console.log("validar22222222222222")
+console.log(this.formulario.numdoc);
+  this.obtenerEmpresas();
   this.empresas.forEach(u => console.log(u));
   // for (const usuario of this.usuarios){
   //  if (usuario.nidentificacion ===  Number(this.formulario.numdoc)){
     
   //  }
   // }
-  this.usuarios.forEach((usuario,index ) => {
+  
+}
+
+
+obtenerUsuarios(): void {
+  this.usuarioServicio.obtenerUsuarioLista().subscribe(
+    (datos => {
+      this.usuarios=datos;
+    }),
+    this.usuarios.forEach((usuario,index ) => {
      if (usuario.nidentificacion ===  Number(this.formulario.numdoc)){
       this.formulario.nombre1 = this.usuarios[index].name1;
       this.formulario.nombre2 = this.usuarios[index].name2;
@@ -56,21 +80,18 @@ console.log(this.formulario.numdoc);
       this.formulario.telUsuario = this.usuarios[index].telUsuario;
 
    }
-  })
-  this.validar2();
-}
-
-validar2(): void{
-console.log("validar22222222222222")
-console.log(this.formulario.numdoc);
-  this.obtenerEmpresas();
-  this.empresas.forEach(u => console.log(u));
-  // for (const usuario of this.usuarios){
-  //  if (usuario.nidentificacion ===  Number(this.formulario.numdoc)){
-    
-  //  }
-  // }
-  this.empresas.forEach((empresa,index ) => {
+  }),
+  this.usuarios.forEach(u => console.log(u))
+   );
+  
+  }
+   
+   obtenerEmpresas(): void {
+  this.empresaServicio.obtenerEmpresaLista().subscribe(
+    (datos2 => {
+      this.empresas=datos2;
+    }),
+    this.empresas.forEach((empresa,index ) => {
     var index2 = index + 1 ;
     console.log("el idEmpresa de índice"+index2+"es: "+this.formulario.empresa.idEmpresa);
        if (empresa.idEmpresa ===  Number(this.formulario.empresa.idEmpresa) ){
@@ -85,24 +106,8 @@ console.log(this.formulario.numdoc);
       this.formulario.empresa.tipoDoc = this.empresas[index].tipoDoc;
       this.formulario.empresa.nombre = this.empresas[index].nombre;
    }
-  })
-}
-
-
-obtenerUsuarios(): void {
-  this.usuarioServicio.obtenerUsuarioLista().subscribe(
-    (datos => {
-      this.usuarios=datos;
-    })
-   );
-  
-  }
-   
-   obtenerEmpresas(): void {
-  this.empresaServicio.obtenerEmpresaLista().subscribe(
-    (datos2 => {
-      this.empresas=datos2;
-    })
+  }),
+  this.empresas.forEach(u => console.log(u))
    );
   
   }
