@@ -12,6 +12,7 @@ import { EventEmitter } from 'stream';
 import {ReadXlsxComponent} from './components/read-xlsx/read-xlsx.component';
 import {WriteXlsxComponent} from './components/write-xlsx/write-xlsx.component';
 import { RouterLink } from '@angular/router';
+import { SourceTextModule } from 'vm';
 
 
 @Injectable({
@@ -29,6 +30,7 @@ import { RouterLink } from '@angular/router';
 
 export class Table2 {
 
+    token  = "";
     usuarios: Usuario[]=[
       //   {
       //       idUsuario: 1,
@@ -60,17 +62,27 @@ export class Table2 {
     constructor(private usuarioServicio: UsuarioService) { }
   ngOnInit(): void {
      this.obtenerUsuarios();
-   
+    
   }
 
 
   
   obtenerUsuarios(): void {
-    this.usuarioServicio.obtenerUsuarioLista().subscribe(
-      (datos =>{
-        this.usuarios=datos;
-      })
-     );
+    // this.usuarioServicio.obtenerUsuarioLista().subscribe(
+    //   (datos =>{
+    //     this.usuarios=datos;
+    //   })   );
+       this.usuarioServicio.loguearse().subscribe(
+        datos => {
+          this.token = datos;
+          console.log('Token recibido con éxito:', this.token);
+          localStorage.setItem('token',datos)
+          //localStorage.setItem('jambalaooo','opaopaopaopa')
+          localStorage.setItem('jambalaooo111111111','666666666')
+        sessionStorage.setItem('jambalaooo22222222','777777777')
+        }
+      )
+  
     
     }
 

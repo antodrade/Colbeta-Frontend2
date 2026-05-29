@@ -54,10 +54,9 @@ console.log(this.formulario.numdoc);
 
 
 obtenerUsuarios(): void {
-  this.usuarioServicio.obtenerUsuarioLista().subscribe(
-    (datos => {
+  this.usuarioServicio.obtenerUsuarioLista().subscribe({
+    next: (datos) => {
       this.usuarios=datos;
-    }),
     this.usuarios.forEach((usuario,index ) => {
      if (usuario.nidentificacion ===  Number(this.formulario.numdoc)){
       this.formulario.nombre1 = this.usuarios[index].name1;
@@ -80,17 +79,21 @@ obtenerUsuarios(): void {
       this.formulario.telUsuario = this.usuarios[index].telUsuario;
 
    }
-  }),
-  this.usuarios.forEach(u => console.log(u))
-   );
-  
+  });
+},
+  // this.usuarios.forEach(u => console.log(u))
+  //  );
+  error: (err) => {
+    console.error("Error caragando usuarios", err);
+  }
+});
   }
    
    obtenerEmpresas(): void {
-  this.empresaServicio.obtenerEmpresaLista().subscribe(
-    (datos2 => {
+  this.empresaServicio.obtenerEmpresaLista().subscribe({
+    next: (datos2) => {
       this.empresas=datos2;
-    }),
+    
     this.empresas.forEach((empresa,index ) => {
     var index2 = index + 1 ;
     console.log("el idEmpresa de índice"+index2+"es: "+this.formulario.empresa.idEmpresa);
@@ -106,9 +109,14 @@ obtenerUsuarios(): void {
       this.formulario.empresa.tipoDoc = this.empresas[index].tipoDoc;
       this.formulario.empresa.nombre = this.empresas[index].nombre;
    }
-  }),
-  this.empresas.forEach(u => console.log(u))
-   );
+  });
+  },
+   error: (err) => {
+    console.error("Error cargando usuarios", err);
+   }
+  });
+  // this.empresas.forEach(u => console.log(u))
+  //  );
   
   }
 

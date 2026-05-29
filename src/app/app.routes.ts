@@ -85,6 +85,13 @@ export const routes: Routes = [
       title: 'Login Page'
     }
   },
+   {
+    path: 'login2',
+    loadComponent: () => import('./views/login/login.component').then(m => m.LoginComponent),
+    data: {
+      title: 'Login Page2'
+    }
+  },
   {
     path: 'register',
     loadComponent: () => import('./views/pages/register/register.component').then(m => m.RegisterComponent),

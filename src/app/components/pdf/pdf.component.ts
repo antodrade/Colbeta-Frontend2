@@ -70,7 +70,7 @@ constructor(private usuarioServicio: UsuarioService) {
 
 
   ngOnInit(): void {
-    this.obtenerUsuarios()
+    //this.obtenerUsuarios()
    
   }
   operar(): void {
