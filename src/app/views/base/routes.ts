@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import { authGuard } from '../../core/guards/auth.guard'
 
 export const routes: Routes = [
   {
@@ -99,6 +100,7 @@ export const routes: Routes = [
       {
         path: 'tables',
         loadComponent: () => import('./tables/tables.component').then(m => m.TablesComponent),
+        // canActivate: [authGuard],
         data: {
           title: 'Tables'
         }

@@ -19,19 +19,18 @@ private urlBaselog = `${environment.apiUrl}/auth/login`;
   constructor(private clienteHttp: HttpClient) { }
 
   obtenerUsuarioLista(): Observable<Usuario[]>{
-    const token = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJBbnRvbmlvNiIsImlhdCI"+
-    "6MTc3OTc1MjI4MiwiZXhwIjoxNzc5NzU1ODgyfQ.86rwLI1kybfE6CJzkgHJ980sEmGdjn_QPnkKRAbCBDU";
+    const token2 = localStorage.getItem('token2')
     const headers = new HttpHeaders({
-      'Authorization': `Bearer ${token}`
+      'Authorization': `Bearer ${token2}`
     });
     return this.clienteHttp.get<Usuario[]>(this.urlBase, { headers });
   }
 
-  loguearse(): Observable<string>{
+  loguearse(username: string, password: string): Observable<string>{
     
     const body = {
-      "username" : "Antonio6",
-      "password" : "123456789"
+      "username" : username,
+      "password" : password
     }
     return this.clienteHttp.post(this.urlBaselog,  body , { responseType: 'text'});
   } 

@@ -68,20 +68,21 @@ export class Table2 {
 
   
   obtenerUsuarios(): void {
-    // this.usuarioServicio.obtenerUsuarioLista().subscribe(
-    //   (datos =>{
-    //     this.usuarios=datos;
-    //   })   );
-       this.usuarioServicio.loguearse().subscribe(
-        datos => {
-          this.token = datos;
-          console.log('Token recibido con éxito:', this.token);
-          localStorage.setItem('token',datos)
-          //localStorage.setItem('jambalaooo','opaopaopaopa')
-          localStorage.setItem('jambalaooo111111111','666666666')
-        sessionStorage.setItem('jambalaooo22222222','777777777')
-        }
-      )
+    this.usuarioServicio.obtenerUsuarioLista().subscribe(
+      (datos =>{
+        this.usuarios=datos;
+      })   );
+      //  this.usuarioServicio.loguearse("Antonio6","123456789").subscribe(
+      //   datos => {
+      //     this.token = datos;
+      //     console.log('Token recibido con éxito:', this.token);
+      //     localStorage.setItem('token',datos)
+      //     //localStorage.setItem('jambalaooo','opaopaopaopa')
+      //     localStorage.setItem('jambalaooo111111111','666666666')
+      //   sessionStorage.setItem('jambalaooo22222222','777777777')
+      //   localStorage.setItem('umpalumpa','vea usted');
+      //   }
+      // )
   
     
     }
