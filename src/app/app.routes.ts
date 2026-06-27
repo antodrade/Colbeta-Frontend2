@@ -111,7 +111,7 @@ export const routes: Routes = [
   {
     path: 'register',
     loadComponent: () => import('./views/pages/register/register.component').then(m => m.RegisterComponent),
-      canActivate: [authGuard],
+      //canActivate: [authGuard],
     data: {
       title: 'Register Page'
     }
