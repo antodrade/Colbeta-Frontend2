@@ -43,7 +43,7 @@ private urlBasereg = `${environment.apiUrl}/auth/register`;
     const headers = new HttpHeaders({
       'Authorization': `Bearer ${token2}`
     });
-    return this.clienteHttp.post(this.urlBase, usuario, {headers})
+    return this.clienteHttp.post(this.urlBase, usuario, { headers })
   }
 
   agregarUsuarioData(loginData: LoginData): Observable<Object>{

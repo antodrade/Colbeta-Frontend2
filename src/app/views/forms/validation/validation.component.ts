@@ -38,7 +38,7 @@ this.usuarioServicio.agregarUsuarioLista(this.usuario).subscribe(
     next:(datos)=>{
       this.irListaUsuarios();
     },
-    error: (error: any) => {console.log(error)}
+    error: (error: any) => {console.log("holaaa este es el error", error)}
   }
 );
 }

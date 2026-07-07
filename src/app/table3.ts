@@ -94,5 +94,9 @@ export class Table3 {
     newUser(): void {
       console.log("ombeeeeeee")
     }
+
+     newCompany(): void {
+      console.log("ombeeeeeee")
+    }
  
   }
