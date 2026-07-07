@@ -39,7 +39,11 @@ private urlBasereg = `${environment.apiUrl}/auth/register`;
   } 
 
   agregarUsuarioLista(usuario: Usuario): Observable<Object>{
-    return this.clienteHttp.post(this.urlBase, usuario)
+      const token2 = localStorage.getItem('token2')
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token2}`
+    });
+    return this.clienteHttp.post(this.urlBase, usuario, {headers})
   }
 
   agregarUsuarioData(loginData: LoginData): Observable<Object>{

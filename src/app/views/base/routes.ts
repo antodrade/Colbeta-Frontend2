@@ -105,6 +105,14 @@ export const routes: Routes = [
           title: 'Tables'
         }
       },
+       {
+        path: 'tables2',
+        loadComponent: () => import('./tables2/tables2.component').then(m => m.TablesComponent),
+        // canActivate: [authGuard],
+        data: {
+          title: 'Tables2'
+        }
+      },
       {
         path: 'form-eps',
         loadComponent: () => import('./form-eps/form-eps.component').then(m => m.FormEpsComponent),

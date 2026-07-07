@@ -67,6 +67,13 @@ export const routes: Routes = [
         data: {
           title: 'Validation'
         }
+      },
+       {
+        path: 'validation2',
+        loadComponent: () => import('./validation2/validation2.component').then(m => m.ValidationComponent),
+        data: {
+          title: 'Validation2'
+        }
       }
     ]
   }

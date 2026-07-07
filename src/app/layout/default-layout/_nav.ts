@@ -190,6 +190,11 @@ export const navItems: INavData[] = [
     iconComponent: { name: 'cil-chart-pie' },
     url: '/base/tables'
   },
+   {
+    name: 'Empresas',
+    iconComponent: { name: 'cil-chart-pie' },
+    url: '/base/tables2'
+  },
   {
     name: 'Generar Planilla',
     iconComponent: { name: 'cil-chart-pie' },

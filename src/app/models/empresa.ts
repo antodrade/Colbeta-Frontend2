@@ -8,5 +8,4 @@ export class Empresa {
     correo!: string;
     municipio!: string;
     departamento!: string;
-    camejameja!: string;
 }

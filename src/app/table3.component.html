@@ -1,0 +1,51 @@
+<c-row ngPreserveWhitespaces>
+    <c-col xs="12">
+      <c-card class="mb-4">
+        <c-card-header>
+          <strong>Angular Table</strong> <small>Striped rows</small>
+        </c-card-header>
+        <c-card-body>
+          <p class="text-body-secondary small">
+            Use <code>striped</code> property to add zebra-striping to any table row within the <code>&lt;tbody&gt;</code>.
+          </p>
+          
+          <app-docs-example href="components/table#striped-rows">
+            <table [striped]="true" cTable>
+              <thead>
+              <tr>
+                <th scope="col">#</th>
+                 <th scope="col">Tipo de Identificacion</th>
+                <th scope="col"># de Identificacion</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Departamento</th>
+                <th scope="col">Municipio</th>
+                <th scope="col">Correo</th>
+                <th scope="col">teléfono</th>
+              </tr>
+              </thead>
+              <tbody>
+                @for (empresa of empresas; track empresa.idEmpresa){
+                  <tr>
+                    <th scope="row">{{empresa.idEmpresa}}</th>
+                    <td> {{empresa.tipoDoc}} </td>
+                    <td> {{empresa.nidentificacion}} </td>
+                     <td> {{empresa.nombre}} </td>
+                    <td> {{empresa.departamento}} </td>
+                    <td> {{empresa.municipio}} </td>
+                    <td> {{empresa.correo}} </td>
+                     <td> {{empresa.telefono}} </td>
+                  </tr>
+                }
+               
+              </tbody>
+            </table>
+          </app-docs-example>
+          <button cButton (click)="newUser()" class=" col-2 my-2 btn btn-secondary float-end"
+          routerLink="/forms/validation" routerLinkActive="active" >Nuevo Usuario</button>
+           <pdf/>
+           <read-xlsx/>
+           <write-xlsx/>
+        </c-card-body>
+      </c-card>
+    </c-col>
+  </c-row>

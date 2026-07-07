@@ -1,0 +1,155 @@
+ <c-col xs="12">
+    <c-card class="mb-4">
+      <c-card-header ngPreserveWhitespaces>
+        <strong>Nuevo Usuario</strong>
+      </c-card-header>
+      <c-card-body>
+        <p class="text-body-secondary small">
+       Ingrese los datos del nuevo usuario
+        </p>
+        <!-- <app-docs-example href="forms/validation#tooltips"> -->
+
+          <form #tooltipForm="ngForm"
+                (ngSubmit)="guardarEmpresa()"
+                [validated]="tooltipValidated"
+                cForm
+                class="row g-3 needs-validation"
+
+          >
+            <c-col class="position-relative" md="3">
+              <label cLabel for="validationTooltip01">Nombre</label>
+              <input cFormControl id="validationTooltip01" required type="text" name="name1"  placeholder="Escriba su primer nombre"
+              [(ngModel)]="empresa.nombre" />
+              <c-form-feedback [valid]="true" tooltip>Looks good!</c-form-feedback>
+            </c-col>
+            <c-col class="position-relative" md="3">
+              <label cLabel for="validationTooltip01">Tipo de Documento</label>
+              <input cFormControl id="validationTooltip01" required type="text" name="name2"  placeholder="Escriba su segundo nombre"
+              [(ngModel)]="empresa.tipoDoc" />
+              <c-form-feedback [valid]="true" tooltip>Looks good!</c-form-feedback>
+            </c-col>
+            <c-col class="position-relative" md="3">
+              <label cLabel for="validationTooltip02">número de Documento</label>
+              <input cFormControl id="validationTooltip02" required type="text" name="lastname1" placeholder="Escriba su primer apellido" 
+              [(ngModel)]="empresa.nidentificacion"/>
+              <c-form-feedback [valid]="true" tooltip>Looks good!</c-form-feedback>
+            </c-col>
+            <c-col class="position-relative" md="3">
+              <label cLabel for="validationTooltip02">Municipio</label>
+              <input cFormControl id="validationTooltip02" required type="text" name="lastname2" placeholder="Escriba su segundo apellido" 
+              [(ngModel)]="empresa.municipio"/>
+              <c-form-feedback [valid]="true" tooltip>Looks good!</c-form-feedback>
+            </c-col>
+
+
+            <c-col class="position-relative" md="3">
+              <label cLabel for="validationTooltip01">Departamento</label>
+              <input cFormControl id="validationTooltip01" required type="text" name="name1"  placeholder="Escriba su primer nombre"
+              [(ngModel)]="empresa.departamento" />
+              <c-form-feedback [valid]="true" tooltip>Looks good!</c-form-feedback>
+            </c-col>
+            <c-col class="position-relative" md="3">
+              <label cLabel for="validationTooltip01">Teléfono</label>
+              <input cFormControl id="validationTooltip01" required type="text" name="name2"  placeholder="Escriba su segundo nombre"
+              [(ngModel)]="empresa.telefono" />
+              <c-form-feedback [valid]="true" tooltip>Looks good!</c-form-feedback>
+            </c-col>
+            <c-col class="position-relative" md="3">
+              <label cLabel for="validationTooltip02">Dirección</label>
+              <input cFormControl id="validationTooltip02" required type="text" name="lastname1" placeholder="Escriba su primer apellido" 
+              [(ngModel)]="empresa.direccion"/>
+              <c-form-feedback [valid]="true" tooltip>Looks good!</c-form-feedback>
+            </c-col>
+            <c-col class="position-relative" md="3">
+              <label cLabel for="validationTooltip02">Correo</label>
+              <input cFormControl id="validationTooltip02" required type="text" name="lastname2" placeholder="Escriba su segundo apellido" 
+              [(ngModel)]="empresa.correo"/>
+              <c-form-feedback [valid]="true" tooltip>Looks good!</c-form-feedback>
+            </c-col>
+
+            
+
+            <c-col class="position-relative" md="3">
+              <label cLabel for="validationTooltip01">Teléfono</label>
+              <input cFormControl id="validationTooltip01" required type="text" name="name1"  placeholder="Escriba su primer nombre"
+              [(ngModel)]="usuario.telUsuario" />
+              <c-form-feedback [valid]="true" tooltip>Looks good!</c-form-feedback>
+            </c-col>
+            <c-col class="position-relative" md="3">
+              <label cLabel for="validationTooltip01">Celular</label>
+              <input cFormControl id="validationTooltip01" required type="text" name="name2"  placeholder="Escriba su segundo nombre"
+              [(ngModel)]="usuario.celUsuario" />
+              <c-form-feedback [valid]="true" tooltip>Looks good!</c-form-feedback>
+            </c-col>
+            <c-col class="position-relative" md="6">
+              <label cLabel for="validationTooltip02">Email</label>
+              <input cFormControl id="validationTooltip02" required type="text" name="lastname1" placeholder="Escriba su primer apellido" 
+              [(ngModel)]="usuario.email"/>
+              <c-form-feedback [valid]="true" tooltip>Looks good!</c-form-feedback>
+            </c-col>
+           
+
+
+            <c-col class="position-relative" md="4">
+              <label cLabel for="validationTooltip01">Dirección</label>
+              <input cFormControl id="validationTooltip01" required type="text" name="direccion" placeholder="Escriba su primer nombre"
+              [(ngModel)]="usuario.direccion" />
+              <c-form-feedback [valid]="true" tooltip>Looks good!</c-form-feedback>
+            </c-col>
+            <c-col class="position-relative" md="3">
+              <label cLabel for="validationTooltip04">Ciudad</label>
+              <select cSelect id="validationTooltip04" required placeholder="escoge" name="ciudad"
+              [(ngModel)]="usuario.ciudad">
+                <option value="">Choose...</option>
+                <option value="Barranquilla">Barranquilla</option>
+                <option value="Valledupar">Valledupar</option>
+                <option value="Bogota">Bogota</option>
+              </select>
+              <c-form-feedback [valid]="false" tooltip>Please provide a valid State.</c-form-feedback>
+            </c-col>
+            <c-col class="position-relative" md="2">
+              <label cLabel for="validationTooltip02">Fecha de Ingreso</label>
+              <input cFormControl id="validationTooltip02" required type="date" name="fechaIngreso" placeholder="dd-mm-aaaa"
+              [(ngModel)]="usuario.fechaIngreso" />
+              <c-form-feedback [valid]="true" tooltip>Looks good!</c-form-feedback>
+            </c-col>
+            <c-col class="position-relative" md="3">
+              <label cLabel for="validationTooltip04">EPS</label>
+              <select cSelect id="validationTooltip04"  name="eps"
+              [(ngModel)]="usuario.eps">
+                <option value="">Choose...</option>
+                <option value="Sura">Sura</option>
+                <option value="Sura">Sanitas</option>
+                <option value="Sura">Saludtotal</option>
+              </select>
+              <c-form-feedback [valid]="false" tooltip>Please provide a valid State.</c-form-feedback>
+            </c-col>
+       
+                
+             
+          
+        
+           
+            <c-col class="position-relative" xs="12">
+              <c-form-check>
+                <input cFormCheckInput id="invalidCheckTooltip" name="invalidCheckTooltip" required type="checkbox" />
+                <label cFormCheckLabel for="invalidCheckTooltip">Cotiza a Pensión</label>
+              </c-form-check>
+              <c-form-feedback [valid]="false" tooltip>You must agree before submitting.</c-form-feedback>
+            </c-col>
+            <c-col xs="12">
+              <button cButton class="me-1" color="primary" type="submit">
+                Enviar
+              </button>
+              <button (click)="onReset3()" cButton color="secondary" type="reset">
+                Limpiar
+              </button>
+              <button cButton class=" col-2 my-2 btn btn-secondary float-end"
+          routerLink="/base/tables" routerLinkActive="active" >Listado de Usuarios</button>
+            </c-col>
+          </form>
+        <!-- </app-docs-example> -->
+      </c-card-body>
+    </c-card>
+  </c-col>
+
