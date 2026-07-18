@@ -1,4 +1,5 @@
 import {Empresa} from './empresa'
+import { Usuario } from './usuario';
 
 export class FormularioEps {
    
@@ -16,7 +17,7 @@ export class FormularioEps {
     ARL!: string;
     AFP!: string;
     salario!: string;
-    dirUsuario!: string;
+    direccion!: string;
     telUsuario!: string;
     celular!: string;
     emailUsuario!: string;
@@ -35,9 +36,12 @@ export class FormularioEps {
     fechaIng!: string;
     caja!: string;
     cargo!: string;
+    dirUsuario!: string;
+    usuario: Usuario;
     empresa: Empresa;
 
     constructor(){
         this.empresa=new Empresa();
+        this.usuario=new Usuario();
     }
     }

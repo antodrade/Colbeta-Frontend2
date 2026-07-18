@@ -58,26 +58,28 @@ obtenerUsuarios(): void {
     next: (datos) => {
       this.usuarios=datos;
     this.usuarios.forEach((usuario,index ) => {
-     if (usuario.nidentificacion ===  Number(this.formulario.numdoc)){
-      this.formulario.nombre1 = this.usuarios[index].name1;
-      this.formulario.nombre2 = this.usuarios[index].name2;
-      this.formulario.apellido1 = this.usuarios[index].lastname1;
-      this.formulario.apellido2 = this.usuarios[index].lastname2;
-      this.formulario.ciudadUsuario = this.usuarios[index].ciudad;
-      this.formulario.depUsuario = this.usuarios[index].ciudad;
-      this.formulario.dirUsuario = this.usuarios[index].dirUsuario;
-      this.formulario.emailUsuario = this.usuarios[index].email;
-      this.formulario.celular = this.usuarios[index].celUsuario;
-      this.formulario.sexo = this.usuarios[index].sexo;
-      this.formulario.fechanac = this.usuarios[index].fechaNac;
+      console.log("yuju1")
+     if (Number(usuario.nidentificacion) ===  +this.formulario.usuario.nidentificacion){
+      this.formulario.usuario.name1 = this.usuarios[index].name1;
+      this.formulario.usuario.name2 = this.usuarios[index].name2;
+      this.formulario.usuario.lastname1 = this.usuarios[index].lastname1;
+      this.formulario.usuario.lastname2 = this.usuarios[index].lastname2;
+      this.formulario.usuario.ciudad = this.usuarios[index].ciudad;
+      this.formulario.usuario.departamento = this.usuarios[index].departamento;
+      this.formulario.usuario.direccion = this.usuarios[index].direccion;
+      this.formulario.usuario.email = this.usuarios[index].email;
+      this.formulario.usuario.celUsuario = this.usuarios[index].celUsuario;
+      this.formulario.usuario.sexo = this.usuarios[index].sexo;
+      this.formulario.usuario.fechaNac = this.usuarios[index].fechaNac;
       this.formulario.AFP = "Porvenir";
       this.formulario.ARL =  "Sura";
       this.formulario.cargo = "Asesor Comercial";
-      this.formulario.salario = "1.423.500";
+      this.formulario.salario = "1.750.905";
       this.formulario.caja = "Cajacopi"
-      this.formulario.tipodoc = this.usuarios[index].tipoDoc;
-      this.formulario.telUsuario = this.usuarios[index].telUsuario;
-
+      this.formulario.usuario.tipoDoc = this.usuarios[index].tipoDoc;
+      this.formulario.usuario.telUsuario = this.usuarios[index].telUsuario;
+console.log("yuju2")
+console.log(this.usuarios[index].name1)
    }
   });
 },
@@ -151,6 +153,19 @@ transformarFechaIng(fecha: string): string {
   return fechaFormateada.split('').join('   ');
 }
 
+transformarSexo(genero: string): string {
+  // fecha viene como: 2025-12-01
+  if (genero == "Masculino"){
+   return "            x"
+  }
+  if (genero == "Femenino"){
+   return "x"
+  }else{
+    return "opa"
+  }
+}
+
+
 transformarFechaNac(fechaStr: string): string {
   if (!fechaStr) return '';
 
@@ -215,34 +230,33 @@ generarPdfconDatos(){
   // const text30 = 'Cargo: Asesor comercial'
   const text31 = 'x';
   const text32 = 'x';
-  const text = this.formulario.apellido1;
-  const text2 = this.formulario.apellido2;
-  const text3 = this.formulario.nombre1;
-  const text4 = this.formulario.nombre2;
-  const text5 = this.formulario.tipodoc;
-  const text6 = this.formulario.numdoc;
-  const text7 = this.formulario.sexo;
-  const text8 = this.transformarFechaNac(this.formulario.fechanac);
+  const text = this.formulario.usuario.lastname1;
+  const text2 = this.formulario.usuario.lastname2;
+  const text3 = this.formulario.usuario.name1;
+  const text4 = this.formulario.usuario.name2;
+  const text5 = this.formulario.usuario.tipoDoc;
+  const text6 = this.formulario.usuario.nidentificacion;
+  const text7 = this.transformarSexo(this.formulario.usuario.sexo);
+  const text8 = this.transformarFechaNac(this.formulario.usuario.fechaNac);
   const text9 = this.formulario.ARL;
   const text10 = this.formulario.AFP;
   const text11 = this.formulario.salario;
-  const text12 = this.formulario.dirUsuario;
-  const text13 = this.formulario.telUsuario;
-  const text14 = this.formulario.celular;
-  const text15 = this.formulario.emailUsuario;
-  const text16 = this.formulario.ciudadUsuario;
+  const text12 = this.formulario.usuario.direccion;
+  const text13 = this.formulario.usuario.telUsuario;
+  const text14 = this.formulario.usuario.celUsuario;
+  const text15 = this.formulario.usuario.email;
+  const text16 = this.formulario.usuario.ciudad;
   const text17 = 'x';
   const text18 = '';
-  const text19 = this.formulario.depUsuario;
-  //const text20 = this.formulario.empresa.nombre;
-  const text20 = 'El propio Great';
+  const text19 = this.formulario.usuario.departamento;
+  const text20 = this.formulario.empresa.nombre;
   const text21 = this.formulario.empresa.tipoDoc;
-  const text22 = this.formulario.empresa.tipoDoc;
+  const text22 = String(this.formulario.empresa.nidentificacion);
   const text23 = this.formulario.empresa.direccion;
   const text24 = this.formulario.empresa.telefono;
   const text25 = this.formulario.empresa.correo;
   const text26 = this.formulario.empresa.municipio;
-  const text27 = this.formulario.empresa.municipio;
+  const text27 = this.formulario.empresa.departamento;
   const text28 = this.transformarFechaIng(this.formulario.fechaIng);
   const text29 = this.formulario.caja;
   const text30 = this.formulario.cargo;

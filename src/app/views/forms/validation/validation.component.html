@@ -43,7 +43,7 @@
 
 
             <c-col class="position-relative" md="3">
-              <label cLabel for="validationTooltip01">Tipo de doocumento</label>
+              <label cLabel for="validationTooltip01">Tipo de documento</label>
               <input cFormControl id="validationTooltip01" required type="text" name="name1"  placeholder="Escriba su primer nombre"
               [(ngModel)]="usuario.tipoDoc" />
               <c-form-feedback [valid]="true" tooltip>Looks good!</c-form-feedback>
@@ -55,10 +55,14 @@
               <c-form-feedback [valid]="true" tooltip>Looks good!</c-form-feedback>
             </c-col>
             <c-col class="position-relative" md="3">
-              <label cLabel for="validationTooltip02">Sexo</label>
-              <input cFormControl id="validationTooltip02" required type="text" name="lastname1" placeholder="Escriba su primer apellido" 
-              [(ngModel)]="usuario.sexo"/>
-              <c-form-feedback [valid]="true" tooltip>Looks good!</c-form-feedback>
+              <label cLabel for="validationTooltip04">Sexo</label>
+              <select cSelect id="validationTooltip04" required placeholder="escoge" name="sexo"
+              [(ngModel)]="usuario.sexo">
+                <option value="">Choose...</option>
+                <option value="Masculino">Masculino</option>
+                <option value="Femenino">Femenino</option>
+              </select>
+              <c-form-feedback [valid]="false" tooltip>Please provide a valid State.</c-form-feedback>
             </c-col>
             <c-col class="position-relative" md="3">
               <label cLabel for="validationTooltip02">Fecha de nacimiento</label>
@@ -96,16 +100,17 @@
               [(ngModel)]="usuario.direccion" />
               <c-form-feedback [valid]="true" tooltip>Looks good!</c-form-feedback>
             </c-col>
-            <c-col class="position-relative" md="3">
-              <label cLabel for="validationTooltip04">Ciudad</label>
-              <select cSelect id="validationTooltip04" required placeholder="escoge" name="ciudad"
-              [(ngModel)]="usuario.ciudad">
-                <option value="">Choose...</option>
-                <option value="Barranquilla">Barranquilla</option>
-                <option value="Valledupar">Valledupar</option>
-                <option value="Bogota">Bogota</option>
-              </select>
-              <c-form-feedback [valid]="false" tooltip>Please provide a valid State.</c-form-feedback>
+            <c-col class="position-relative" md="4">
+              <label cLabel for="validationTooltip01">Departamento</label>
+              <input cFormControl id="validationTooltip01" required type="text" name="direccion" placeholder="Escriba su departamento"
+              [(ngModel)]="usuario.departamento" />
+              <c-form-feedback [valid]="true" tooltip>Looks good!</c-form-feedback>
+            </c-col>
+             <c-col class="position-relative" md="4">
+              <label cLabel for="validationTooltip01">Municipio</label>
+              <input cFormControl id="validationTooltip01" required type="text" name="direccion" placeholder="Escriba su departamento"
+              [(ngModel)]="usuario.ciudad" />
+              <c-form-feedback [valid]="true" tooltip>Looks good!</c-form-feedback>
             </c-col>
             <c-col class="position-relative" md="2">
               <label cLabel for="validationTooltip02">Fecha de Ingreso</label>
@@ -118,9 +123,7 @@
               <select cSelect id="validationTooltip04"  name="eps"
               [(ngModel)]="usuario.eps">
                 <option value="">Choose...</option>
-                <option value="Sura">Sura</option>
                 <option value="Sura">Sanitas</option>
-                <option value="Sura">Saludtotal</option>
               </select>
               <c-form-feedback [valid]="false" tooltip>Please provide a valid State.</c-form-feedback>
             </c-col>

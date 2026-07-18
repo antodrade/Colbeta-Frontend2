@@ -22,7 +22,7 @@ usuarios: Usuario[]=[];
  usuarios2: Usuario[]=[
     {
         idUser: 1,
-        nidentificacion: 1,
+        nidentificacion: "1",
         name1: 'xxxxx',
         name2: 'xxxxx',
         lastname1: 'xxxxx',
@@ -32,7 +32,7 @@ usuarios: Usuario[]=[];
         direccion: 'xxxxxx',
         ciudad: 'xxxxxxx',
         tipoDoc: '',
-        numDoc: '',
+        departamento: '',
         sexo: '',
         fechaNac: '',
         dirUsuario: '',
@@ -42,7 +42,7 @@ usuarios: Usuario[]=[];
     },
     {
       idUser: 2,
-      nidentificacion: 1,
+      nidentificacion: "1",
       name1: 'yyyyyyy',
       name2: 'yyyyyyy',
       lastname1: 'yyyyy',
@@ -52,7 +52,7 @@ usuarios: Usuario[]=[];
       direccion: 'yyyyyyy',
       ciudad: 'yyyyyyy',
       tipoDoc: '',
-      numDoc: '',
+      departamento: '',
       sexo: '',
       fechaNac: '',
       dirUsuario: '',

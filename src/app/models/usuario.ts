@@ -1,12 +1,12 @@
 export class Usuario {
     idUser!: number;
-    nidentificacion!: number;
+    nidentificacion!: string;
     name1!: string;
     name2!: string;
     lastname1!: string;
     lastname2!: string;
     tipoDoc!: string;
-    numDoc!: string;
+    departamento!: string;
     sexo!: string;
     fechaNac!: string;
     dirUsuario!: string;
