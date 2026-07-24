@@ -1,0 +1,33 @@
+<div class="container">
+  <h2>Generar PDF con Efecto Escaneado</h2>
+
+  <div>
+    <label>Plantilla PDF:</label>
+    <input type="file" accept="application/pdf" (change)="onPlantillaSelected($event)" />
+  </div>
+
+  <br />
+
+  <div>
+    <label>Imagen de Firma (PNG/JPG):</label>
+    <input type="file" accept="image/*" (change)="onFirmaSelected($event)" />
+  </div>
+
+  <br />
+
+  <button (click)="procesarDocumento()" [disabled]="cargando">
+    {{ cargando ? 'Procesando PDF...' : 'Generar y Previsualizar' }}
+  </button>
+  
+  <button (click)="descargarPdf()" [disabled]="cargando">
+    Descargar PDF
+  </button>
+
+  <hr />
+
+  <!-- Previsualización del PDF dentro de la app -->
+  <div *ngIf="pdfUrlPreview">
+    <h3>Resultado:</h3>
+    <iframe [src]="pdfUrlPreview" width="100%" height="600px"></iframe>
+  </div>
+</div>

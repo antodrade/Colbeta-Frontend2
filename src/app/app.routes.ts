@@ -10,11 +10,21 @@ export const routes: Routes = [
   },
   {
     path: '',
+     canActivate: [authGuard],
     component: DefaultLayoutComponent,
     data: {
       title: 'Home'
     },
     children: [
+      {
+        path: 'escanear-pdf',
+        loadComponent: () => import('./pdf-scanner/pdf-scanner.component').then(m => m.PdfScannerComponent),
+        canActivate: [authGuard],
+        data: {
+          title: 'Escáner de PDF'
+        }
+      },
+  
       {
         path: 'dashboard',
         loadChildren: () => import('./views/dashboard/routes').then((m) => m.routes)
