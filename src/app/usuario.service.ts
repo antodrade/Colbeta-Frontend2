@@ -54,4 +54,6 @@ private urlBasereg = `${environment.apiUrl}/auth/register`;
     return this.clienteHttp.post(this.urlBasereg, this.empleado)
   }
 
+  
+
 }

@@ -38,7 +38,8 @@ usuarios: Usuario[]=[];
         dirUsuario: '',
         telUsuario: '',
         celUsuario: '',
-        email: ''
+        email: '',
+        urlFirma:''
     },
     {
       idUser: 2,
@@ -58,7 +59,8 @@ usuarios: Usuario[]=[];
       dirUsuario: '',
       telUsuario: '',
       celUsuario: '',
-      email: ''
+      email: '',
+     urlFirma:''
 
   }
 ]; 

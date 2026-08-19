@@ -16,7 +16,7 @@ private apiUrl = `${environment.apiUrl}/api/pdf/firmar-y-escanear`
   /**
    * Envía la plantilla y la firma al backend y recibe el PDF procesado como un Blob.
    */
-  generarPdfEscaneado(plantillaFile: File, firmaFile: File): Observable<Blob> {
+  generarPdfEscaneado(plantillaFile: File, firmaFile: File, firmaFile2: File): Observable<Blob> {
    const   token2 = localStorage.getItem('token2')
     const headers = new HttpHeaders({
           'Authorization': `Bearer ${token2}`
@@ -26,6 +26,7 @@ private apiUrl = `${environment.apiUrl}/api/pdf/firmar-y-escanear`
     // Nombres de parámetros requeridos por el controller de Spring
     formData.append('plantilla', plantillaFile);
     formData.append('firma', firmaFile);
+    formData.append('firma2', firmaFile2);
 
     return this.http.post(this.apiUrl, formData,  { headers,
       responseType: 'blob' // Necesario para respuestas binarias/archivos

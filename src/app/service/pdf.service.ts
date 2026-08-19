@@ -28,7 +28,7 @@ export class PdfService {
      x13: number, y13: number,x14: number, y14: number,x15: number, y15: number,  x16: number, y16: number,x17: number, y17: number,x18: number, y18: number, 
      x19: number, y19: number, x20: number, y20: number, x21: number, y21: number, x22: number, y22: number,x23: number, y23: number,x24: number, y24: number,
      x25: number, y25: number,x26: number, y26: number,x27: number, y27: number,x28: number, y28: number,x29: number, y29: number,x30: number, y30: number,
-     x31: number, y31: number,x32: number, y32: number) {
+     x31: number, y31: number,x32: number, y32: number): Promise<Uint8Array>  {
     // Cargar el PDF existente
     const pdfDoc = await PDFDocument.load(existingPdfBytes);
 
@@ -301,12 +301,17 @@ export class PdfService {
 
     // Guardar el archivo PDF resultante
     this.downloadFile(pdfBytes);
+      return pdfBytes;
   }
+
+  
 
   private downloadFile(pdfBytes: Uint8Array) {
     // Utilizar file-saver para descargar el PDF modificado
     const blob = new Blob([pdfBytes], { type: 'application/pdf' });
     saveAs(blob, 'modified.pdf');
+
+  
   }
 }
 

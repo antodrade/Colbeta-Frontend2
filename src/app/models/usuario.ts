@@ -17,4 +17,5 @@ export class Usuario {
     direccion!: string;
     eps!: string;
     fechaIngreso!: Date;
+    urlFirma!: string;
     }

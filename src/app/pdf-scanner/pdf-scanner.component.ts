@@ -13,6 +13,7 @@ export class PdfScannerComponent {
 
   plantillaArchivo: File | null = null;
   firmaArchivo: File | null = null;
+  firmaArchivo2: File | null = null;
   pdfUrlPreview: SafeResourceUrl | null = null;
   cargando: boolean = false;
 
@@ -29,15 +30,19 @@ export class PdfScannerComponent {
     this.firmaArchivo = event.target.files[0] || null;
   }
 
+  onFirmaSelected2(event: any): void {
+    this.firmaArchivo2 = event.target.files[0] || null;
+  }
+
   procesarDocumento(): void {
-    if (!this.plantillaArchivo || !this.firmaArchivo) {
+    if (!this.plantillaArchivo || !this.firmaArchivo || !this.firmaArchivo2  ) {
       alert('Por favor selecciona ambos archivos.');
       return;
     }
 
     this.cargando = true;
 
-    this.pdfScannerService.generarPdfEscaneado(this.plantillaArchivo, this.firmaArchivo)
+    this.pdfScannerService.generarPdfEscaneado(this.plantillaArchivo, this.firmaArchivo, this.firmaArchivo2)
       .subscribe({
         next: (blobResponse: Blob) => {
           this.cargando = false;
@@ -55,9 +60,9 @@ export class PdfScannerComponent {
   }
 
   descargarPdf(): void {
-    if (!this.plantillaArchivo || !this.firmaArchivo) return;
+    if (!this.plantillaArchivo || !this.firmaArchivo ||!this.firmaArchivo2) return;
 
-    this.pdfScannerService.generarPdfEscaneado(this.plantillaArchivo, this.firmaArchivo)
+    this.pdfScannerService.generarPdfEscaneado(this.plantillaArchivo, this.firmaArchivo, this.firmaArchivo2)
       .subscribe((blobResponse: Blob) => {
         const url = window.URL.createObjectURL(blobResponse);
         const a = document.createElement('a');

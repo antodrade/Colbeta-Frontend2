@@ -35,6 +35,19 @@ export class ValidationComponent implements OnInit {
 
   }
 
+    // 1. Declarar la variable para que la plantilla la reconozca
+  fileName: string = '';
+
+  // 2. Agregar el método para capturar la selección del archivo
+  onFileSelected(event: Event): void {
+    const input = event.target as HTMLInputElement;
+    if (input.files && input.files.length > 0) {
+      this.fileName = input.files[0].name;
+    } else {
+      this.fileName = '';
+    }
+  }
+
 guardarEmpresa(): void{
 this.empresaServicio.agregarEmpresa(this.empresa).subscribe(
   {

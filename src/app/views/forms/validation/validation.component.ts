@@ -5,6 +5,7 @@ import { RowComponent, ColComponent, TextColorDirective, CardComponent, CardHead
 import { Usuario } from 'src/app/models/usuario';
 import { UsuarioService } from 'src/app/usuario.service';
 import { RouterLink } from '@angular/router';
+import { FirestoreService } from '../../../servicios/firestore.service';
 
 @Component({
     selector: 'app-validation',
@@ -24,7 +25,7 @@ export class ValidationComponent implements OnInit {
   tooltipValidated = false;
   usuario: Usuario = new Usuario();
 
-  constructor(private usuarioServicio: UsuarioService) { }
+  constructor(private usuarioServicio: UsuarioService, private firestoreService: FirestoreService) { }
 
   ngOnInit(): void { }
 
@@ -32,7 +33,56 @@ export class ValidationComponent implements OnInit {
 
   }
 
+  // 1. Declarar la variable para que la plantilla la reconozca
+  fileName: string = '';
+ archivo: File | null = null;;
+ urlFirma: string = "";
+
+  // 2. Agregar el método para capturar la selección del archivo
+  onFileSelected(event: Event): void {
+    const input = event.target as HTMLInputElement;
+    if (input.files && input.files.length > 0) {
+      this.archivo = input.files[0];
+      this.fileName = this.archivo.name;
+    } else {
+      this.fileName = '';
+    }
+  }
+
+   cargarFirma(): void {
+    if (this.archivo != null){
+   this.firestoreService.guardarFirma(this.archivo).subscribe({
+    next:(response: any)=> {
+     this.urlFirma = response;
+     console.log(this.urlFirma);
+     console.log((this.urlFirma as any).name);
+     console.log(response.generation);
+     this.obtenerURLFirma();
+    },
+    error: (err) => {
+      console.error("ha ocurrido el siguiente error", err)
+    }
+   })
+    }else {
+      console.warn("no hay ningún archivo seleccionado")
+    }
+  }
+
+obtenerURLFirma(): void {
+  this.firestoreService.obtenerDownloadURL(this.fileName)
+  .then((url: string) => {
+    this.urlFirma = url;
+    console.log('URL obtenida correctamente:', url);
+    this.usuario.urlFirma = this.urlFirma;
+  })
+  .catch((error) => {
+   console.error('Error la obtener la URL:', error)
+  });
+}
+
+
 guardarUsuario(): void{
+  
 this.usuarioServicio.agregarUsuarioLista(this.usuario).subscribe(
   {
     next:(datos)=>{
