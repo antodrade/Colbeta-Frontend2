@@ -1,130 +1,72 @@
 import { Routes } from '@angular/router';
-import { DefaultLayoutComponent } from './layout';
+import { MainLayoutComponent } from './layout';
 import { authGuard } from './core/guards/auth.guard';
 
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: 'home',
-    pathMatch: 'full'
-  },
-  {
-    path: '',
-     canActivate: [authGuard],
-    component: DefaultLayoutComponent,
-    data: {
-      title: 'Home'
-    },
+    canActivate: [authGuard],
+    component: MainLayoutComponent,
     children: [
       {
-        path: 'escanear-pdf',
-        loadComponent: () => import('./pdf-scanner/pdf-scanner.component').then(m => m.PdfScannerComponent),
-        canActivate: [authGuard],
-        data: {
-          title: 'Escáner de PDF'
-        }
+        path: '',
+        redirectTo: 'dashboard',
+        pathMatch: 'full'
       },
-  
       {
         path: 'dashboard',
-        loadChildren: () => import('./views/dashboard/routes').then((m) => m.routes)
-        //  canActivate: [authGuard]
-      },
-      // {
-      //   path: 'form-eps',
-      //   loadChildren: () => import('./views/base/form-eps').then((m) => m.routes)
-      // },
-      {
-        path: 'home',
-        loadChildren: () => import('./views/home/routes').then((m) => m.routes),
-         canActivate: [authGuard]
+        loadComponent: () => import('./features/dashboard/dashboard.component').then(m => m.DashboardComponent),
+        data: { title: 'Dashboard' }
       },
       {
-        path: 'theme',
-        loadChildren: () => import('./views/theme/routes').then((m) => m.routes)
-        ,canActivate: [authGuard]
+        path: 'formularios-pdf',
+        loadComponent: () => import('./features/form-eps/form-eps.component').then(m => m.FormEpsComponent),
+        data: { title: 'Formularios PDF' }
       },
       {
-        path: 'base',
-        loadChildren: () => import('./views/base/routes').then((m) => m.routes)
-        ,canActivate: [authGuard]
+        path: 'empresas',
+        loadComponent: () => import('./features/empresas/empresas.component').then(m => m.EmpresasComponent),
+        data: { title: 'Empresas' }
       },
       {
-        path: 'buttons',
-        loadChildren: () => import('./views/buttons/routes').then((m) => m.routes)
-        ,canActivate: [authGuard]
+        // Ruta histórica: apuntaba al mismo listado de empresas (que es donde
+        // viven los exportadores de Excel/PILA). Se conserva como redirect
+        // para no romper enlaces guardados.
+        path: 'pila',
+        redirectTo: 'empresas',
+        pathMatch: 'full'
       },
       {
-        path: 'forms',
-        loadChildren: () => import('./views/forms/routes').then((m) => m.routes)
-         ,canActivate: [authGuard]
+        path: 'usuarios',
+        loadComponent: () => import('./features/usuarios/usuarios.component').then(m => m.UsuariosComponent),
+        data: { title: 'Usuarios' }
       },
       {
-        path: 'icons',
-        loadChildren: () => import('./views/icons/routes').then((m) => m.routes)
-         ,canActivate: [authGuard]
+        path: 'usuarios/nuevo',
+        loadComponent: () => import('./features/nuevo-usuario/nuevo-usuario.component').then(m => m.NuevoUsuarioComponent),
+        data: { title: 'Nuevo usuario' }
       },
       {
-        path: 'notifications',
-        loadChildren: () => import('./views/notifications/routes').then((m) => m.routes)
-         ,canActivate: [authGuard]
+        path: 'empresas/nueva',
+        loadComponent: () => import('./features/nueva-empresa/nueva-empresa.component').then(m => m.NuevaEmpresaComponent),
+        data: { title: 'Nueva empresa' }
       },
       {
-        path: 'widgets',
-        loadChildren: () => import('./views/widgets/routes').then((m) => m.routes)
-         ,canActivate: [authGuard]
-      },
-      {
-        path: 'charts',
-        loadChildren: () => import('./views/charts/routes').then((m) => m.routes)
-         ,canActivate: [authGuard]
-      },
-      {
-        path: 'pages',
-        loadChildren: () => import('./views/pages/routes').then((m) => m.routes)
-         ,canActivate: [authGuard]
+        path: 'escanear-pdf',
+        loadComponent: () => import('./features/pdf-scanner/pdf-scanner.component').then(m => m.PdfScannerComponent),
+        data: { title: 'Escáner de PDF' }
       }
     ]
   },
   {
-    path: '404',
-    loadComponent: () => import('./views/pages/page404/page404.component').then(m => m.Page404Component),
-    canActivate: [authGuard],
-    data: {
-      title: 'Page 404'
-    }
-  },
-  {
-    path: '500',
-    loadComponent: () => import('./views/pages/page500/page500.component').then(m => m.Page500Component),
-      canActivate: [authGuard],
-    data: {
-      title: 'Page 500'
-    }
-  },
-  {
     path: 'login',
-    loadComponent: () => import('./views/pages/login/login.component').then(m => m.LoginComponent),
-      // canActivate: [authGuard],
-    data: {
-      title: 'Login Page'
-    }
-  },
-   {
-    path: 'login2',
-    loadComponent: () => import('./views/login/login.component').then(m => m.LoginComponent),
-      canActivate: [authGuard],
-    data: {
-      title: 'Login Page2'
-    }
+    loadComponent: () => import('./features/login/login.component').then(m => m.LoginComponent),
+    data: { title: 'Login' }
   },
   {
     path: 'register',
-    loadComponent: () => import('./views/pages/register/register.component').then(m => m.RegisterComponent),
-      //canActivate: [authGuard],
-    data: {
-      title: 'Register Page'
-    }
+    loadComponent: () => import('./features/register/register.component').then(m => m.RegisterComponent),
+    data: { title: 'Registro' }
   },
   { path: '**', redirectTo: 'dashboard' }
 ];

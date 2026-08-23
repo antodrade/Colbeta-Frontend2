@@ -1,23 +1,24 @@
-/* You can add global styles to this file, and also import other style files */
+// Reset de Tailwind primero: así CoreUI/Bootstrap conserva sus estilos base
+// para las pantallas de negocio que todavía dependen de ellos
+// (usuarios, empresas, nuevo-usuario, nueva-empresa, login).
+@import "tailwindcss/base";
 
 // If you want to override variables do it here
 @import "variables";
 
-// Import styles with default layout.
+// CoreUI/Bootstrap va después del reset de Tailwind: aporta el reboot, el grid
+// y los componentes (btn, form-control, table, card) que siguen usando las
+// pantallas de negocio, además de $enable-dark-mode y el mixin color-mode()
+// que necesita _theme.scss.
 @import "@coreui/coreui/scss/coreui";
-
-// Import Chart.js custom tooltips styles
-@import "@coreui/chartjs/scss/coreui-chartjs";
 
 // Custom styles for this theme
 @import "theme";
 
-// Some temp fixes
-//@import "fixes";
-
 // If you want to add custom CSS you can put it here.
 @import "custom";
 
-// Examples
-// We use those styles to show code examples, you should remove them in your application.
-@import "examples";
+// Las utilidades de Tailwind van al final para que ganen a las reglas de CoreUI
+// en el layout nuevo.
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";

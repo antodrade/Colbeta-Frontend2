@@ -1,0 +1,96 @@
+import { Component, OnInit } from '@angular/core';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { RowComponent, ColComponent, TextColorDirective, CardComponent, CardHeaderComponent, CardBodyComponent, FormDirective, FormLabelDirective, FormControlDirective, FormFeedbackComponent, InputGroupComponent, InputGroupTextDirective, FormSelectDirective, FormCheckComponent, FormCheckInputDirective, FormCheckLabelDirective, ButtonDirective, ListGroupDirective, ListGroupItemDirective } from '@coreui/angular';
+import { Usuario } from 'src/app/models/usuario';
+import { UsuarioService } from 'src/app/usuario.service';
+import { RouterLink } from '@angular/router';
+import { Empresa } from 'src/app/models/empresa';
+import { EmpresaService } from 'src/app/empresa.service';
+
+@Component({
+    selector: 'app-nueva-empresa',
+    templateUrl: './nueva-empresa.component.html',
+    styleUrls: ['./nueva-empresa.component.scss'],
+    standalone: true,
+    imports: [FormsModule, RowComponent, ColComponent, TextColorDirective, CardComponent, CardHeaderComponent,
+      CardBodyComponent, ReactiveFormsModule, FormsModule, FormDirective, FormLabelDirective,
+      FormControlDirective, FormFeedbackComponent, InputGroupComponent, InputGroupTextDirective,
+       FormSelectDirective, FormCheckComponent, FormCheckInputDirective, FormCheckLabelDirective,
+        ButtonDirective, ListGroupDirective, ListGroupItemDirective, RouterLink]
+})
+export class NuevaEmpresaComponent implements OnInit {
+
+  customStylesValidated = false;
+  browserDefaultsValidated = false;
+  tooltipValidated = false;
+  usuario: Usuario = new Usuario();
+  empresa: Empresa = new Empresa();
+
+  constructor(private empresaServicio: EmpresaService) { }
+
+  ngOnInit(): void { }
+
+  enviar(){
+
+  }
+
+    // 1. Declarar la variable para que la plantilla la reconozca
+  fileName: string = '';
+
+  // 2. Agregar el método para capturar la selección del archivo
+  onFileSelected(event: Event): void {
+    const input = event.target as HTMLInputElement;
+    if (input.files && input.files.length > 0) {
+      this.fileName = input.files[0].name;
+    } else {
+      this.fileName = '';
+    }
+  }
+
+guardarEmpresa(): void{
+this.empresaServicio.agregarEmpresa(this.empresa).subscribe(
+  {
+    next:(datos)=>{
+      this.irListaUsuarios();
+    },
+    error: (error: any) => {console.log(error)}
+  }
+);
+}
+
+irListaUsuarios(){
+  console.log("holaaaaaaaaaaaaaa")
+}
+  
+  onSubmit1() {
+    this.customStylesValidated = true;
+    console.log('Submit... 1');
+  }
+
+  onReset1() {
+    this.customStylesValidated = false;
+    console.log('Reset... 1');
+  }
+
+  onSubmit2() {
+    this.browserDefaultsValidated = true;
+    console.log('Submit... 2');
+  }
+
+  onReset2() {
+    this.browserDefaultsValidated = false;
+    console.log('Reset... 3');
+  }
+
+  onSubmit3() {
+    this.tooltipValidated = true;
+    console.log('Submit... 3');
+  }
+
+  onReset3() {
+    this.tooltipValidated = false;
+    console.log('Reset... 3');
+  }
+
+
+}

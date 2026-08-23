@@ -3,9 +3,8 @@ import pdfMake from 'pdfmake/build/pdfmake';
 import pdfFonts from 'pdfmake/build/vfs_fonts';
 import { delay } from 'rxjs';
 import { Usuario } from 'src/app/models/usuario';
-import { Table2 } from 'src/app/table2';
 import { UsuarioService } from 'src/app/usuario.service';
-pdfMake.vfs = pdfFonts.pdfMake.vfs;
+(pdfMake as any).vfs = (pdfFonts as any).pdfMake?(pdfFonts as any).vfs: pdfFonts;
 
 @Component({
   selector: 'pdf',

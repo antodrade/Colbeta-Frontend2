@@ -61,12 +61,15 @@
     "@types/lodash-es": "^4.17.12",
     "@types/node": "^20.16.1",
     "@types/pdfmake": "^0.2.9",
+    "autoprefixer": "10.5.4",
     "jasmine-core": "^5.2.0",
     "karma": "^6.4.4",
     "karma-chrome-launcher": "^3.2.0",
     "karma-coverage": "^2.2.1",
     "karma-jasmine": "^5.1.0",
     "karma-jasmine-html-reporter": "^2.1.0",
+    "postcss": "8.5.26",
+    "tailwindcss": "3.4.19",
     "typescript": "~5.5.4"
   },
   "engines": {
