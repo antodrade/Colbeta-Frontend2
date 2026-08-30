@@ -47,7 +47,7 @@ import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
                     routerLinkActive="active-link"
                     [routerLinkActiveOptions]="{ exact: true }"
                     (click)="closeMobileMenu()"
-                    class="group flex items-center gap-3 rounded-md px-3 py-2 text-xs font-medium text-slate-400 no-underline transition-all duration-200 hover:bg-white/5 hover:text-slate-100"
+                    class="group flex items-center gap-3 rounded-md px-3 py-2 text-xs font-medium text-slate-400 no-underline transition-all duration-150 hover:bg-slate-800/60 hover:text-white"
                   >
                     <!-- Indicador Activo (Dot) - Se muestra via CSS clase .active-link -->
                     <div class="hidden active-dot w-1.5 h-1.5 rounded-full bg-indigo-500 shadow-[0_0_8px_rgba(99,102,241,0.6)]"></div>
@@ -100,7 +100,7 @@ import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
             </button>
 
             <!-- Breadcrumbs / Título -->
-            <div class="hidden items-center gap-2 text-xs font-medium md:flex">
+            <div class="hidden items-center gap-2 text-xs font-medium md:flex py-4 mb-2">
               <span class="text-slate-400">App</span>
               <span class="text-slate-300">/</span>
               <span class="text-slate-600">Overview</span>

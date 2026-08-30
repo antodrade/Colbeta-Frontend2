@@ -29,6 +29,12 @@ export class FormEpsComponent {
   opciones2: string[] = ['Great Features', 'Clever Sinergy', 'Soft Skills Management'];
   opcionSeleccionada2: string = '';
 
+  //Lista con los nombres de los campos faltantes
+  camposFaltantes: string[] = [];
+
+  //Mensaje de error general para el botón
+  errorGenerarPdf: string = '';
+
   constructor(
     private pdfService: PdfService, 
     private pdfScannerService: PdfScannerService, 
@@ -120,6 +126,7 @@ export class FormEpsComponent {
   }
 
   transformarFechaIng(fecha: string): string {
+    if (!fecha) return '';
     const [anio, mes, dia] = fecha.split('-');
     const fechaFormateada = `${dia}${mes}${anio}`;
     return fechaFormateada.split('').join('   ');
@@ -152,7 +159,40 @@ export class FormEpsComponent {
     );
   }
 
+obtenerCamposNulos(obj: any, prefijo = ''): string[] {
+  if (!obj || typeof obj != 'object') return [];
+
+  return Object.keys(obj).reduce((faltantes: string[], clave) => {
+    const rutaCampo = prefijo ? `${prefijo}.${clave}` : clave;
+    const valor = obj[clave];
+
+    if (valor === undefined || valor === null || valor === ''){
+      faltantes.push(rutaCampo);
+    } else if (typeof valor === 'object' && !Array.isArray(valor)){
+      faltantes.push(...this.obtenerCamposNulos(valor, rutaCampo));
+    }
+    return faltantes;
+  }, []);
+}
+
+  // 2. Método helper para simplificar la consulta desde el HTML
+  esInvalido(campo:string): boolean {
+    return this.camposFaltantes.includes(campo);
+  }
+
   generarPdfconDatos() {
+  //  Limpiar errores previos
+   // 1. Ejecutar la búsqueda automática
+   this.camposFaltantes = this.obtenerCamposNulos(this.formulario);
+
+   // 2. Si encontró algún nulo/undefined, frena la ejecución
+    if (this.camposFaltantes.length> 0){
+      this.errorGenerarPdf = 'Faltan campos por completar en el formulario';
+      return;
+    }
+   
+    this.errorGenerarPdf = '';
+
     this.http.get('assets/formulario-base.pdf', { responseType: 'arraybuffer' }).subscribe(async (data: ArrayBuffer) => {
       const existingPdfBytes = new Uint8Array(data);
 

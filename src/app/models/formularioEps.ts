@@ -33,7 +33,8 @@ export class FormularioEps {
     emailEmpresa!: string;
     ciudadEmpresa!: string;
     depEmpresa!: string;
-    fechaIng!: string;
+    //fechaIng!: string;
+    fechaIng: string = '';
     caja!: string;
     cargo!: string;
     dirUsuario!: string;

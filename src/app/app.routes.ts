@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 import { MainLayoutComponent } from './layout';
 import { authGuard } from './core/guards/auth.guard';
+import { PlanoPilaComponent } from './features/plano-pila/plano-pila.component';
 
 export const routes: Routes = [
   {
@@ -36,6 +37,12 @@ export const routes: Routes = [
         redirectTo: 'empresas',
         pathMatch: 'full'
       },
+
+    {
+  path: 'plano-pila',
+  loadComponent: () => import('./features/plano-pila/plano-pila.component').then(m => m.PlanoPilaComponent),
+  data: { title: 'Archivo Plano PILA' }
+    },
       {
         path: 'usuarios',
         loadComponent: () => import('./features/usuarios/usuarios.component').then(m => m.UsuariosComponent),
@@ -44,8 +51,8 @@ export const routes: Routes = [
       {
         path: 'usuarios/nuevo',
         loadComponent: () => import('./features/nuevo-usuario/nuevo-usuario.component').then(m => m.NuevoUsuarioComponent),
-        data: { title: 'Nuevo usuario' }
-      },
+      data: { title: 'Nuevo usuario' }
+      },  
       {
         path: 'empresas/nueva',
         loadComponent: () => import('./features/nueva-empresa/nueva-empresa.component').then(m => m.NuevaEmpresaComponent),
