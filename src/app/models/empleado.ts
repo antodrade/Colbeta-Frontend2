@@ -1,6 +1,6 @@
 export class Empleado{
 username!: string;
 password!: string;
-nombreReal!: string;
+email!:string;
 rol!: string;
 }

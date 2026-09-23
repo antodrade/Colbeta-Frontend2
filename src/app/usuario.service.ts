@@ -5,6 +5,7 @@ import { Usuario } from './models/usuario';
 import { environment } from '../environments/environment';
 import { LoginData } from './models/loginData';
 import { Empleado } from './models/empleado';
+import { RegistroEmpleado } from './models/registroEmpleado';
 
 
 @Injectable({
@@ -46,12 +47,25 @@ private urlBasereg = `${environment.apiUrl}/auth/register`;
     return this.clienteHttp.post(this.urlBase, usuario, { headers })
   }
 
-  agregarUsuarioData(loginData: LoginData): Observable<Object>{
-    this.empleado.username=loginData.usuario;
-    this.empleado.password=loginData.password
-    this.empleado.rol="okis";
-    this.empleado.nombreReal="okis okis"
-    return this.clienteHttp.post(this.urlBasereg, this.empleado)
+  agregarUsuarioData(registroEmpleado: RegistroEmpleado): Observable<Object>{ 
+    return this.clienteHttp.post(this.urlBasereg, registroEmpleado)
+  }
+
+eliminarUsuarioPorId(id: number){
+    const token2 = localStorage.getItem('token2')
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token2}`
+    });
+    return this.clienteHttp.get<number>(`${this.urlBase}/${id}`, { headers });
+  }
+  
+
+  extraerIdxIdentificacion(identificacion: string): Observable<number>{
+    const token2 = localStorage.getItem('token2')
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token2}`
+    });
+  return this.clienteHttp.get<number>(`${this.urlBase}/identificacion/${identificacion}`, { headers })
   }
 
   

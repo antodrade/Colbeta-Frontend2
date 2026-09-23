@@ -68,16 +68,16 @@ export class PilaFlatFileService {
       0, '', '', 8, 1, c.primerApellido || '', '',
       c.primerNombre || '', '', '', '', '',
       '', '', '', '', '', '', '',
-      '', '', '', 0, '', 0,
-      '230301', '', 'EPS002', '',
+      '', '', '', '', '', 0,
+      c.AFP, '', 'EPS002', '',
       'CCF05', 30, 30, 30, 30,
       c.salarioBasico || 0, 'F', c.salarioBasico || 0, c.salarioBasico || 0, c.salarioBasico || 0,
-      c.salarioBasico || 0, 0.16, 0, 0,
+      c.salarioBasico || 0, 0.16, 480000, 0,
       0, 0, 0, 0,
-      0, 0.04, 0, 0,
+      0, 0.04, 120000, 0,
       '', 0, '', 0,
-      0.00522, 0, 0, 0.04,
-      0, 0, 0, 0,
+      0.00522, , 15700, 0.04,
+      120000, 0, 0, 0,
       0, 0, 0, 0,
       0, '', '', 'S',
       '14-11', 1, '', '',
@@ -95,6 +95,6 @@ export class PilaFlatFileService {
     XLSX.utils.book_append_sheet(workbook, worksheet, 'Planilla base');
 
     const fileName = `NI${empresa.numDoc || '901557914'}_87704789_${empresa.periodoPension || '202607'}.xlsx`;
-    XLSX.writeFile(workbook, fileName);
+   XLSX.writeFile(workbook, fileName, { bookSST: true });
   }
 }

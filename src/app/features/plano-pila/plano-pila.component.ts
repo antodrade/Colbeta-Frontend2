@@ -1,6 +1,9 @@
 import { Component, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PilaFlatFileService } from './pila-flat-file-service';
+import { UsuarioService } from '../../usuario.service';
+import { Usuario } from '../../models/usuario';
+import { Cotizante } from '../../models/cotizante';
 
 @Component({
   selector: 'app-plano-pila',
@@ -11,6 +14,12 @@ import { PilaFlatFileService } from './pila-flat-file-service';
 export class PlanoPilaComponent {
   private pilaService = inject(PilaFlatFileService);
 
+  private usuarioService = inject(UsuarioService);
+  //public usuario = inject(Usuario);
+  usuarios: Usuario[] = []
+  cotizantesPila: Cotizante[] = [];
+
+   
   // Estado del componente con Signals
   isGenerating = signal<boolean>(false);
   operador = signal<'ARUS' | 'SIMPLE'>('ARUS');
@@ -32,15 +41,52 @@ export class PlanoPilaComponent {
       numDoc: '1065839201',
       primerNombre: 'JUAN',
       primerApellido: 'PEREZ',
-      salarioBasico: 3000000
+      salarioBasico: 3000000,
+      AFP: '230301'
     },
     {
       numDoc: '1065839202',
       primerNombre: 'MARIA',
       primerApellido: 'GOMEZ',
-      salarioBasico: 4500000
+      salarioBasico: 3000000,
+      AFP:'25-14'
     }
   ]);
+
+   cotizantes2 = signal<any[]>([]);
+
+
+
+  
+
+
+
+  ngOnInit(): void{
+this.usuarioService.obtenerUsuarioLista().subscribe(
+    usuarios => { this.usuarios = usuarios
+
+      usuarios.forEach((usuario, index) =>{
+        console.log(usuarios);
+    this.cotizantesPila.push({
+      numDoc: usuario.nidentificacion,
+      primerNombre: usuario.name1,
+      primerApellido: usuario.lastname1,
+      salarioBasico: '1750905',
+      AFP: '230301'
+    })
+  }) 
+  //this.cotizantes.set(this.cotizantesPila);
+  console.log("console despues del forEach", this.cotizantesPila);
+  this.cotizantes.set(this.cotizantesPila);
+    });
+
+
+
+  }
+
+
+  
+
 
   descargarPlano(): void {
     this.isGenerating.set(true);

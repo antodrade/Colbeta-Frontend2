@@ -5,6 +5,7 @@ import { UsuarioService } from '../../usuario.service';
 import { FormsModule } from '@angular/forms';
 import { LoginData } from '../../models/loginData';
 import { Router } from '@angular/router';
+import { RegistroEmpleado } from '../../models/registroEmpleado';
 
 @Component({
     selector: 'app-register',
@@ -15,12 +16,17 @@ import { Router } from '@angular/router';
 })
 export class RegisterComponent {
   loginData: LoginData = new LoginData();
+  registroEmpleado: RegistroEmpleado = {
+    username: '',
+    password: '',
+    email: ''
+  }
 
   private router = inject(Router);
   constructor(private usuarioServicio: UsuarioService) { }
 
   registrar(): void {
-    this.usuarioServicio.agregarUsuarioData(this.loginData).subscribe(
+    this.usuarioServicio.agregarUsuarioData(this.registroEmpleado).subscribe(
       (datos) => {
         this.router.navigate(['/login']);
         console.log("registrado")
