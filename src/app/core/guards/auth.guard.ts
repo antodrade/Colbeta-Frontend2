@@ -1,19 +1,15 @@
 import { inject } from '@angular/core';
 import { CanActivateFn, Router } from '@angular/router';
 import {jwtDecode}  from 'jwt-decode'
+import { AuthService } from '../services/auth.service';
 
 export const authGuard: CanActivateFn = (route, state) => {
   const router = inject(Router);
+  const authService = inject(AuthService);
 
   //verificamos si existe el token en el localStorage
-  const token = localStorage.getItem('token2') ;
-  // if (token){
-  //   return true
-  // } else {
-  //   // si no hay token lo mandamos directo al login
-  //   router.navigate(['/login']);
-  //   return false;
-  // }
+  const token = authService.obtenerToken();
+ 
 
 
 if (!token){
@@ -35,15 +31,15 @@ try{
 if (expirationTime < currentTime){
 console.warn("el token ha expirado, limpiando sesión....");
 
-localStorage.removeItem('token2');
+authService.cerrarSesion();
 router.navigate(['/login']);
 return false;
 }
   return true;
 }catch(error){
   console.error("Token invalido o corrupto", error);
-localStorage.removeItem('token2');
+authService.cerrarSesion();
 router.navigate(['/login']);
 return false;
-}
+ }
 }

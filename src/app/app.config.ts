@@ -1,6 +1,7 @@
 import { ApplicationConfig } from '@angular/core';
-import { provideHttpClient, withFetch } from '@angular/common/http';
+import { provideHttpClient, withFetch, withInterceptors } from '@angular/common/http';
 import { provideAnimations } from '@angular/platform-browser/animations';
+import { authInterceptor } from './core/interceptors/auth.interceptors';
 import {
   provideRouter,
   withEnabledBlockingInitialNavigation,
@@ -15,7 +16,8 @@ import { routes } from './app.routes';
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideHttpClient(withFetch()),
+    provideHttpClient(withFetch(),
+  withInterceptors([authInterceptor])),
     provideRouter(routes,
       withRouterConfig({
         onSameUrlNavigation: 'reload'

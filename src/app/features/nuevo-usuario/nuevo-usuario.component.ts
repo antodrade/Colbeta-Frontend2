@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { RowComponent, ColComponent, TextColorDirective, CardComponent, CardHeaderComponent, CardBodyComponent, FormDirective, FormLabelDirective, FormControlDirective, FormFeedbackComponent, InputGroupComponent, InputGroupTextDirective, FormSelectDirective, FormCheckComponent, FormCheckInputDirective, FormCheckLabelDirective, ButtonDirective, ListGroupDirective, ListGroupItemDirective } from '@coreui/angular';
 import { Usuario } from 'src/app/models/usuario';
 import { UsuarioService } from 'src/app/usuario.service';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { FirestoreService } from '../../servicios/firestore.service';
 // import { FormularioEps } from 'src/app/models/formularioEps';
 // import { Empresa } from 'src/app/models/empresa';
@@ -44,6 +44,7 @@ export class NuevoUsuarioComponent implements OnInit {
   fileName: string = '';
   archivo: File | null = null;
   urlFirma: string = "";
+  private router = inject(Router);
 
   constructor(
     private usuarioServicio: UsuarioService, 
@@ -107,6 +108,7 @@ export class NuevoUsuarioComponent implements OnInit {
       {
         next:(datos)=>{
           this.irListaUsuarios();
+          this.router.navigate(['/usuarios'])
         },
         error: (error: any) => {console.log("holaaa este es el error", error)}
       }

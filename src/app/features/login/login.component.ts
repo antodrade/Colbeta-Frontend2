@@ -6,6 +6,7 @@ import { LoginData } from '../../models/loginData';
 import { FormsModule } from '@angular/forms';
 import { UsuarioService } from '../../usuario.service';
 import { Router } from '@angular/router';
+import { AuthService } from '../../core/services/auth.service';
 
 @Component({
     selector: 'app-login',
@@ -18,7 +19,9 @@ export class LoginComponent {
 loginData: LoginData = new LoginData();
 token2 = "";
 private router = inject(Router);
-constructor(private usuarioServicio: UsuarioService){}
+constructor(private usuarioServicio: UsuarioService, 
+  private authService: AuthService
+){}
 loguear(): void{
   const usuario = this.loginData.usuario;
   const password = this.loginData.password;
@@ -27,8 +30,7 @@ console.log(password);
 this.usuarioServicio.loguearse(usuario, password).subscribe(
 datos => {this.token2=datos;
   console.log("token recibido con exito del login"+this.token2);
-  localStorage.setItem("token2",datos);
-  localStorage.setItem('umpalumpa2','vea usted2');
+  this.authService.guardarToken(datos);
   this.router.navigate(['/dashboard']);
 }
 )}}

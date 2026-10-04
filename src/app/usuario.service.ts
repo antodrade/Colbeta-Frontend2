@@ -56,7 +56,8 @@ eliminarUsuarioPorId(id: number){
     const headers = new HttpHeaders({
       'Authorization': `Bearer ${token2}`
     });
-    return this.clienteHttp.get<number>(`${this.urlBase}/${id}`, { headers });
+    //return this.clienteHttp.get<number>(`${this.urlBase}/${id}`, { headers });
+    return this.clienteHttp.delete(`${this.urlBase}/${id}`, { headers })
   }
   
 
