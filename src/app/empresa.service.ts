@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Empresa } from './models/empresa';
@@ -17,20 +17,12 @@ private urlBase = `${environment.apiUrl}/hole2/empresas`;
   constructor(private clienteHttp: HttpClient ) { }
 
 obtenerEmpresaLista(): Observable<Empresa[]>{
-    const token2 = localStorage.getItem('token2')
-      const headers = new HttpHeaders({
-        'Authorization': `Bearer ${token2}`
-      });
-return this.clienteHttp.get<Empresa[]>(this.urlBase, {headers});
+return this.clienteHttp.get<Empresa[]>(this.urlBase);
 }
 
 
  agregarEmpresa(empresa: Empresa): Observable<Object>{
-      const token2 = localStorage.getItem('token2')
-    const headers = new HttpHeaders({
-      'Authorization': `Bearer ${token2}`
-    });
-    return this.clienteHttp.post(this.urlBase, empresa, {headers})
+    return this.clienteHttp.post(this.urlBase, empresa)
   }
 
 

@@ -8,7 +8,7 @@ import { Router } from "@angular/router";
 export class AuthService {
 
 private router = inject(Router);
-private sesionActiva = true;
+private cierrePor401Ejecutado = false;
 
     guardarToken(token: string): void {
         localStorage.setItem('token2',token);
@@ -20,17 +20,17 @@ private sesionActiva = true;
     }
 
     iniciarSesion(): void {
-        this.sesionActiva = true;
+        this.cierrePor401Ejecutado = false;
     }
 
     cerrarSesion(): void {
-        this.sesionActiva = false;
+        this,this.cierrePor401Ejecutado = true;
         localStorage.removeItem('token2');
         this.router.navigate(['/login']);
     }
 
-    getSesionActiva(): boolean {
-        return this.sesionActiva;
+    getCierrepor401Ejecutado(): boolean {
+        return this.cierrePor401Ejecutado;
     }
 
 

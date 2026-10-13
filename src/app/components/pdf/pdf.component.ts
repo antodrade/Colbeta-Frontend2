@@ -38,7 +38,8 @@ usuarios: Usuario[]=[];
         telUsuario: '',
         celUsuario: '',
         email: '',
-        urlFirma:''
+        urlFirma:'',
+        cotizaPension: false
     },
     {
       idUser: 2,
@@ -59,7 +60,8 @@ usuarios: Usuario[]=[];
       telUsuario: '',
       celUsuario: '',
       email: '',
-     urlFirma:''
+     urlFirma:'',
+      cotizaPension: false
 
   }
 ]; 

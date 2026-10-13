@@ -5,6 +5,14 @@ import { UsuarioService } from '../../usuario.service';
 import { Usuario } from '../../models/usuario';
 import { Cotizante } from '../../models/cotizante';
 
+
+type TipoNovedad = 'NINGUNA' | 'ING' | 'RET';
+
+interface NovedadCotizante {
+  tipo: TipoNovedad | null;
+  fecha: string;
+}
+
 @Component({
   selector: 'app-plano-pila',
   standalone: true,
@@ -41,19 +49,33 @@ export class PlanoPilaComponent {
       numDoc: '1065839201',
       primerNombre: 'JUAN',
       primerApellido: 'PEREZ',
-      salarioBasico: 3000000,
-      AFP: '230301'
+      cotizaPension: false,
+      EPS: '230301'
     },
     {
       numDoc: '1065839202',
       primerNombre: 'MARIA',
       primerApellido: 'GOMEZ',
-      salarioBasico: 3000000,
-      AFP:'25-14'
+      cotizaPension: false,
+      EPS:'25-14'
     }
   ]);
 
    cotizantes2 = signal<any[]>([]);
+
+   
+// Configuración de novedades de la planilla
+modoNovedad = signal<'GENERAL' | 'INDIVIDUAL'>('GENERAL');
+
+novedadGeneral = signal<'NINGUNA' | 'ING' | 'RET'>('NINGUNA');
+
+fechaNovedadGeneral = signal<string>('');
+
+
+
+
+novedadesIndividuales = signal<Record<string, NovedadCotizante>>({});
+
 
 
 
@@ -71,8 +93,8 @@ this.usuarioService.obtenerUsuarioLista().subscribe(
       numDoc: usuario.nidentificacion,
       primerNombre: usuario.name1,
       primerApellido: usuario.lastname1,
-      salarioBasico: '1750905',
-      AFP: '230301'
+      cotizaPension: usuario.cotizaPension,
+      EPS: usuario.eps
     })
   }) 
   //this.cotizantes.set(this.cotizantesPila);
@@ -85,6 +107,50 @@ this.usuarioService.obtenerUsuarioLista().subscribe(
   }
 
 
+  
+obtenerNovedad(c: any): NovedadCotizante {
+  const individual = this.novedadesIndividuales()[String(c.numDoc)];
+
+  if (individual) {
+    return individual;
+  }
+
+  if (this.modoNovedad() === 'GENERAL') {
+    return {
+      tipo: this.novedadGeneral(),
+      fecha: this.fechaNovedadGeneral()
+    };
+  }
+
+  return { tipo: 'NINGUNA', fecha: '' };
+}
+
+actualizarNovedad(
+  c: any,
+  tipo: TipoNovedad | null,
+  fecha = ''
+): void {
+  const clave = String(c.numDoc);
+
+  this.novedadesIndividuales.update(actuales => ({
+    ...actuales,
+    [clave]: { tipo, fecha }
+  }));
+}
+
+quitarExcepcion(c: any): void {
+  const clave = String(c.numDoc);
+
+  this.novedadesIndividuales.update(actuales => {
+    const copia = { ...actuales };
+    delete copia[clave];
+    return copia;
+  });
+}
+
+tipoNovedadSeleccionada(c: any): TipoNovedad | 'HEREDAR' {
+  return this.novedadesIndividuales()[String(c.numDoc)]?.tipo ?? 'HEREDAR';
+}
   
 
 

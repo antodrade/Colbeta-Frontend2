@@ -18,4 +18,5 @@ export class Usuario {
     eps!: string;
     fechaIngreso!: Date;
     urlFirma!: string;
+    cotizaPension!: boolean;
     }

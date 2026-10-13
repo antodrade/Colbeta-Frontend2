@@ -1,4 +1,4 @@
-import { HttpClient, HttpContext, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpContext } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Usuario } from './models/usuario';
@@ -23,11 +23,9 @@ private urlBasereg = `${environment.apiUrl}/auth/register`;
   constructor(private clienteHttp: HttpClient) { }
 
   obtenerUsuarioLista(): Observable<Usuario[]>{
-    const token2 = localStorage.getItem('token2')
-    const headers = new HttpHeaders({
-      'Authorization': `Bearer ${token2}`
-    });
-    return this.clienteHttp.get<Usuario[]>(this.urlBase, { headers });
+    
+  
+    return this.clienteHttp.get<Usuario[]>(this.urlBase);
   }
 
   loguearse(username: string, password: string): Observable<string>{
@@ -40,11 +38,7 @@ private urlBasereg = `${environment.apiUrl}/auth/register`;
   } 
 
   agregarUsuarioLista(usuario: Usuario): Observable<Object>{
-      const token2 = localStorage.getItem('token2')
-    const headers = new HttpHeaders({
-      'Authorization': `Bearer ${token2}`
-    });
-    return this.clienteHttp.post(this.urlBase, usuario, { headers })
+    return this.clienteHttp.post(this.urlBase, usuario)
   }
 
   agregarUsuarioData(registroEmpleado: RegistroEmpleado): Observable<Object>{ 
@@ -52,21 +46,12 @@ private urlBasereg = `${environment.apiUrl}/auth/register`;
   }
 
 eliminarUsuarioPorId(id: number){
-    const token2 = localStorage.getItem('token2')
-    const headers = new HttpHeaders({
-      'Authorization': `Bearer ${token2}`
-    });
-    //return this.clienteHttp.get<number>(`${this.urlBase}/${id}`, { headers });
-    return this.clienteHttp.delete(`${this.urlBase}/${id}`, { headers })
+    return this.clienteHttp.delete(`${this.urlBase}/${id}`)
   }
   
 
   extraerIdxIdentificacion(identificacion: string): Observable<number>{
-    const token2 = localStorage.getItem('token2')
-    const headers = new HttpHeaders({
-      'Authorization': `Bearer ${token2}`
-    });
-  return this.clienteHttp.get<number>(`${this.urlBase}/identificacion/${identificacion}`, { headers })
+     return this.clienteHttp.get<number>(`${this.urlBase}/identificacion/${identificacion}`)
   }
 
   

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
 
@@ -17,10 +17,7 @@ private apiUrl = `${environment.apiUrl}/api/pdf/firmar-y-escanear`
    * Envía la plantilla y la firma al backend y recibe el PDF procesado como un Blob.
    */
   generarPdfEscaneado(plantillaFile: File, firmaFile: File, firmaFile2: File): Observable<Blob> {
-   const   token2 = localStorage.getItem('token2')
-    const headers = new HttpHeaders({
-          'Authorization': `Bearer ${token2}`
-        });
+   
     const formData = new FormData();
     
     // Nombres de parámetros requeridos por el controller de Spring
@@ -28,7 +25,7 @@ private apiUrl = `${environment.apiUrl}/api/pdf/firmar-y-escanear`
     formData.append('firma', firmaFile);
     formData.append('firma2', firmaFile2);
 
-    return this.http.post(this.apiUrl, formData,  { headers,
+    return this.http.post(this.apiUrl, formData,  {
       responseType: 'blob' // Necesario para respuestas binarias/archivos
     });
   }
